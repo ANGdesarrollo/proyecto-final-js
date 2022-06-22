@@ -1,0 +1,255 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  font-family: "Cairo", sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: #000000;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+html {
+  font-size: 20px;
+}
+
+.header {
+  flex-wrap: wrap;
+  display: flex;
+  /* LOGO */
+  /* ICONOS SHOPPING CART Y USUARIO */
+  /* NAV */
+  /* ANIMACION MENU NAVEGADOR */
+  /* MENU HAMBURGUESA ANIMACION */
+}
+.header__logo {
+  display: inline;
+  width: 100%;
+  padding: 5px;
+}
+.header__logo img {
+  width: 30%;
+}
+.header__shopping-cart {
+  width: 30%;
+}
+.header__shopping-cart ul {
+  padding: 0;
+  width: 100%;
+  display: flex;
+}
+.header__shopping-cart ul li {
+  list-style-type: none;
+}
+.header__shopping-cart ul li a {
+  display: flex;
+  justify-content: flex-end;
+}
+.header__shopping-cart ul li a img {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 25%;
+}
+.header__shopping-cart ul li a img:hover {
+  transform: scale(1.2);
+}
+.header__nav {
+  background-color: rgba(12, 43, 63, 0.404);
+  width: 100%;
+  position: fixed;
+  top: 170px;
+  right: -200%;
+  transition: 600ms;
+}
+.header__nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  padding: 0;
+}
+.header__nav ul a:hover {
+  border-bottom: 2px solid #29d0fd;
+}
+.header__nav ul .dropdown-main .dropdown {
+  display: none;
+}
+.header__nav ul .dropdown-main .dropdown li {
+  display: flex;
+  padding-left: 30%;
+  width: 100%;
+}
+.header__nav ul .dropdown-main .activedropdown {
+  display: block;
+}
+.header__nav ul .dropdown-main p {
+  display: inline;
+  margin-right: 7px;
+}
+.header__nav ul .dropdown-main .icon-dropdown {
+  width: 5%;
+}
+.header__nav ul .dropdown-main .active-iconDropdown {
+  transform: rotate(180deg);
+}
+.header__nav ul li {
+  padding: 10px;
+  text-align: center;
+  list-style: none;
+}
+.header__nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+.header__activeNav {
+  right: 0;
+  display: block;
+  font-weight: bold;
+}
+.header__activeNav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  padding: 0;
+}
+.header__activeNav ul .dropdown-main .dropdown {
+  display: none;
+}
+.header__activeNav ul .dropdown-main .dropdown li {
+  display: flex;
+  padding-left: 30%;
+  width: 100%;
+}
+.header__activeNav ul .dropdown-main .activedropdown {
+  display: block;
+}
+.header__activeNav ul .dropdown-main p {
+  display: inline;
+  margin-right: 7px;
+}
+.header__activeNav ul .dropdown-main .icon-dropdown {
+  width: 5%;
+}
+.header__activeNav ul .dropdown-main .active-iconDropdown {
+  transform: rotate(180deg);
+}
+.header__activeNav ul li {
+  padding: 10px;
+  text-align: center;
+  list-style: none;
+}
+.header__activeNav ul li a {
+  color: white;
+  text-decoration: none;
+}
+.header__search {
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+.header__search input {
+  color: white;
+  border: none;
+  width: 90%;
+  background-color: rgba(12, 43, 63, 0.404);
+  height: 50%;
+}
+.header__search input ::placeholder {
+  text-align: center;
+  font-size: 0.7rem;
+  font-family: "Cairo", sans-serif;
+  color: #fff;
+}
+.header__bars-menu {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  transform: scale(1.4);
+}
+.header__bars-menu span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  margin-top: 6px;
+  transform-origin: 0 100%;
+  transition: 600ms;
+}
+.header__bars-menu .activebars-menu__line1 {
+  transform: rotate(45deg) translate(-2px, 1px);
+}
+.header__bars-menu .activebars-menu__line2 {
+  opacity: 0;
+  margin-left: -30px;
+}
+.header__bars-menu .activebars-menu__line3 {
+  transform: rotate(-45deg) translate(-4px, 2px);
+}
+
+.test {
+  height: 100vh;
+  background-color: red;
+}
+
+main {
+  height: 100vh;
+}
+main div {
+  height: 40vh;
+  background-image: url(../images/home-main-images/home-background.webp);
+  background-size: cover;
+}
+
+body {
+  background-color: black;
+}
+
+/*# sourceMappingURL=style.css.map */
