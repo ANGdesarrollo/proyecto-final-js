@@ -1,0 +1,166 @@
+@import '../base/_vars';
+
+.general-grid-index-container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "title-index"
+"button-index"
+"animation-index";
+  font-family: 'Russo One', sans-serif;
+
+
+  .title-index {
+    letter-spacing: 10px;
+    font-size: 3em;
+    grid-area: title-index;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .button-index {
+    grid-area: button-index;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    .neon-button {
+      font-size: 1.5rem;
+      display: inline-block;
+      cursor: pointer;
+      text-decoration: none;
+      color: $lightBlue;
+      border: $lightBlue 0.125em solid;
+      padding: 0.25em 1em;
+      border-radius: 0.25em;
+      text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+      box-shadow: inset 0 0 0.5em 0 $lightBlue, 0 0 0.5em 0 $lightBlue;
+      position: relative;
+
+    }
+
+    .neon-button::before {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      background: $lightBlue;
+      top: 120%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+      filter: blur(1em);
+      opacity: 0.7;
+    }
+
+    .neon-button::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: 0 0 2em 0.5em $lightBlue;
+      opacity: 0;
+      background-color: $lightBlue;
+      z-index: -1;
+      transition: opacity 100ms linear;
+    }
+
+    .neon-button:hover,
+    .neon-button:focus {
+      background: $lightBlue;
+      color: $black-hsl;
+      text-shadow: none;
+    }
+
+    .neon-button:hover::before,
+    .neon-button:focus::before {
+      opacity: 1;
+    }
+
+    .neon-button:hover::after,
+    .neon-button:focus::after {
+      opacity: 1;
+    }
+  }
+
+  .animation-index {
+    grid-area: animation-index;
+
+    div {
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+
+      img {
+        width: 15%;
+        height: auto;
+        animation: movement 4s infinite alternate;
+      }
+
+      @keyframes movement {
+        0% {
+          transform: translateX(0) rotateX(0);
+        }
+        100% {
+          transform: translateX(600%) rotate(360deg);
+        }
+
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  .general-grid-index-container {
+    .title-index {
+      letter-spacing: 5px;
+      font-size: 2.5em;
+    }
+
+    .button-index {
+      .neon-button {
+        font-size: 1.5em;
+      }
+    }
+
+    .animation-index {
+      div {
+        width: 100%;
+
+        img {
+          width: 15%;
+          animation: movement 4s infinite alternate;
+        }
+
+        @keyframes movement {
+          0% {
+            transform: translateX(0) rotateX(0);
+          }
+          100% {
+            transform: translateX(550%) rotate(360deg);
+          }
+
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 280px) {
+  .general-grid-index-container {
+    .title-index {
+      font-size: 2em;
+    }
+
+    .button-index {
+      .neon-button {
+        font-size: 1em;
+      }
+    }
+  }
+}

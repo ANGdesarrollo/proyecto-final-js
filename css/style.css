@@ -364,6 +364,134 @@ main .mari {
   background-image: url(../images/home-main-images/home-background.webp);
 }
 
+.general-grid-index-container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "title-index" "button-index" "animation-index";
+  font-family: "Russo One", sans-serif;
+}
+.general-grid-index-container .title-index {
+  letter-spacing: 10px;
+  font-size: 3em;
+  grid-area: title-index;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.general-grid-index-container .button-index {
+  grid-area: button-index;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.general-grid-index-container .button-index .neon-button {
+  font-size: 1.5rem;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: #29d0fd;
+  border: #29d0fd 0.125em solid;
+  padding: 0.25em 1em;
+  border-radius: 0.25em;
+  text-shadow: 0 0 0.125em hsla(0deg, 0%, 100%, 0.3), 0 0 0.45em currentColor;
+  box-shadow: inset 0 0 0.5em 0 #29d0fd, 0 0 0.5em 0 #29d0fd;
+  position: relative;
+}
+.general-grid-index-container .button-index .neon-button::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: #29d0fd;
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7;
+}
+.general-grid-index-container .button-index .neon-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em #29d0fd;
+  opacity: 0;
+  background-color: #29d0fd;
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+.general-grid-index-container .button-index .neon-button:hover,
+.general-grid-index-container .button-index .neon-button:focus {
+  background: #29d0fd;
+  color: hsl(323deg, 21%, 16%);
+  text-shadow: none;
+}
+.general-grid-index-container .button-index .neon-button:hover::before,
+.general-grid-index-container .button-index .neon-button:focus::before {
+  opacity: 1;
+}
+.general-grid-index-container .button-index .neon-button:hover::after,
+.general-grid-index-container .button-index .neon-button:focus::after {
+  opacity: 1;
+}
+.general-grid-index-container .animation-index {
+  grid-area: animation-index;
+}
+.general-grid-index-container .animation-index div {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.general-grid-index-container .animation-index div img {
+  width: 15%;
+  height: auto;
+  animation: movement 4s infinite alternate;
+}
+@keyframes movement {
+  0% {
+    transform: translateX(0) rotateX(0);
+  }
+  100% {
+    transform: translateX(600%) rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .general-grid-index-container .title-index {
+    letter-spacing: 5px;
+    font-size: 2.5em;
+  }
+  .general-grid-index-container .button-index .neon-button {
+    font-size: 1.5em;
+  }
+  .general-grid-index-container .animation-index div {
+    width: 100%;
+  }
+  .general-grid-index-container .animation-index div img {
+    width: 15%;
+    animation: movement 4s infinite alternate;
+  }
+  @keyframes movement {
+    0% {
+      transform: translateX(0) rotateX(0);
+    }
+    100% {
+      transform: translateX(550%) rotate(360deg);
+    }
+  }
+}
+@media screen and (max-width: 280px) {
+  .general-grid-index-container .title-index {
+    font-size: 2em;
+  }
+  .general-grid-index-container .button-index .neon-button {
+    font-size: 1em;
+  }
+}
 body {
   background-color: black;
 }
