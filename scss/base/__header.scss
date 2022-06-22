@@ -134,7 +134,7 @@
           color: $white;
           border-radius: 5px;
           border: none;
-          background-color: $lightBlue-trans;
+          background-color: $grayTrans95;
           height: 25px;
           width: 70%;
           font-size: 0.7rem;
@@ -213,7 +213,7 @@
       .nav-active {
         top: 0;
         ul {
-          background-color: $lightBlue-trans;
+          background-color: $grayTrans;
           top: inherit;
         }
       }
@@ -277,7 +277,6 @@
           input {
             border-radius: 5px;
             border: none;
-            background-color: $lightBlue-trans;
             height: 25px;
             width: 80%;
           }
