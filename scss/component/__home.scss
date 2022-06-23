@@ -1,0 +1,26 @@
+.main {
+  &__container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    .home-a {
+        line-height: 4.5rem;
+        padding: 1rem 0 0 2rem;
+        grid-column: 1 / 4;
+        background-color: red;
+        background-image: url(../../images/home-main-images/home-background.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        h1 {
+            font-size: 4rem;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        span {
+            display: block;
+        }
+    }
+  }
+}
