@@ -54,9 +54,10 @@
           }
 
           .active-dropdown {
-            background-color: $grayTrans95;
+            width: 200px;
+            background-color: $black;
             font-size: 0.8rem;
-            padding: 0;
+            padding-left: 2px;
             position: absolute;
             @include flex(flex, flex-start, center, column);
           }

@@ -1,0 +1,259 @@
+footer {
+    display: flex;
+    padding-left: 5%;
+    font-family: 'Cairo', sans-serif;
+    grid-area: footer;
+  
+    .footer-a {
+      display: flex;
+      align-items: center;
+  
+      img {
+        padding-left: 20px;
+        width: 6%;
+      }
+    }
+  
+    .footer-b {
+      display: flex;
+      padding-top: 2%;
+  
+      #logo-razer {
+        margin: 0 20px 0 20px;
+        width: 3%;
+      }
+  
+      #logo-corsair {
+        margin: 0 20px 0 20px;
+        width: 4%;
+      }
+  
+      #logo-logitech {
+        margin: 0 20px 0 20px;
+        width: 14%;
+      }
+    }
+  
+    .footer-c {
+      padding-top: 5%;
+  
+      ul {
+        padding-left: 5%;
+        display: flex;
+  
+        li {
+          list-style: none;
+          a {
+            display: flex;
+            justify-content: center;
+            img {
+              width: 10%;
+            }
+          }
+        }
+      }
+    }
+  
+    .footer-d {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+  
+      .footer-d-a {
+        padding: 0;
+        display: flex;
+  
+        li {
+          list-style: none;
+  
+          .img-footer-fb {
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+  
+            img {
+              width: 20%;
+            }
+          }
+  
+          .img-footer-ig {
+            padding: 10px;
+            display: flex;
+            justify-content: flex-start;
+  
+            img {
+              width: 20%;
+            }
+          }
+        }
+  
+  
+        img {
+          width: 10%;
+        }
+      }
+  
+      .footer-d-b {
+        display: flex;
+        justify-content: center;
+  
+        img {
+          width: 50%;
+        }
+      }
+  
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    footer {
+      .footer-a {
+        img {
+          width: 8%;
+        }
+      }
+  
+      .footer-b {
+        padding-left: 5%;
+  
+        #logo-razer {
+          width: 5%;
+        }
+  
+        #logo-corsair {
+          width: 6%;
+        }
+  
+        #logo-logitech {
+          width: 20%;
+        }
+      }
+  
+      .footer-c {
+        ul {
+          li {
+            img {
+              width: 15%;
+            }
+          }
+        }
+      }
+  
+      .footer-d {
+        .footer-d-a {
+          li {
+            .img-footer-fb {
+              img {
+                width: 40%;
+              }
+            }
+  
+            .img-footer-ig {
+              img {
+                width: 40%;
+              }
+            }
+          }
+        }
+  
+        .footer-d-b {
+  
+          img {
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width:576px) {
+    footer {
+      padding-left: 15%;
+      .footer-abc {
+        .footer-a {
+          height: 50%;
+          text-align: center;
+          h3 {
+            font-size: 0.8em;
+          }
+          img {
+            width: 15%;
+            padding: 0;
+          }
+        }
+  
+        .footer-b {
+          display: none;
+        }
+  
+        .footer-c {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          height: 50%;
+          padding-top: 0;
+  
+          ul {
+            padding-left: 5%;
+            display: flex;
+  
+            li {
+              list-style: none;
+              display: flex;
+              justify-content: center;
+  
+              img {
+                width: 30%;
+              }
+            }
+          }
+        }
+  
+      }
+  
+      .footer-d {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+  
+        .footer-d-a {
+          padding: 0;
+          display: flex;
+  
+          li {
+            list-style: none;
+  
+            .img-footer-fb {
+              padding: 10px 5px 5px 5px;
+              display: flex;
+              justify-content: flex-end;
+  
+              img {
+                width: 20%;
+              }
+            }
+  
+            .img-footer-ig {
+              padding: 10px 5px 5px 5px;
+              display: flex;
+              justify-content: flex-start;
+  
+              img {
+                width: 20%;
+              }
+            }
+          }
+        }
+  
+        .footer-d-b {
+          display: flex;
+          justify-content: center;
+          img {
+            width: 50%;
+          }
+        }
+      }
+    }
+  
+  }
+  

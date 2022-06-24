@@ -2,8 +2,6 @@
 @import 'base/__header';
 @import 'base/__vars';
 @import 'component/_index';
-@import 'component/__home';
+@import 'component/_home';
+@import 'base/_footer';
 
-body {
-  background-color: black;
-}
