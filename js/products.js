@@ -24,7 +24,7 @@ const Products = [
     {category: "Keyboard", brand: "Razer", name: "Huntsman V2 Analog US", price: 200, imgPath: "../images/products/Keyboard_Razer%20Huntsman%20V2%20Analog%20US.webp"},
     {category: "Keyboard", brand: "Razer", name: "Huntsman V2 Tenkeyless Linear Optical Switch", price: 250, imgPath: "../images/products/Keyboard_Razer%20Huntsman%20V2%20Tenkeyless%20Linear%20Optical%20Switch.webp"},
     {category: "Keyboard", brand: "Razer", name: "Huntsman Mini Linear Optical Switch", price: 170, imgPath: "../images/products/Keyboard_Razer%20Huntsman%20Mini%20Linear%20Optical%20Switch.webp"},
-    {category: "Keyboard", brand: "Razer", name: "Pro Type Ultra US", price: 200, imgPath: "../images/products/Keyboard_Razer%20Pro%20Type%20Ultra%20US.webp"},
+    {category: "Keyboard", brand: "Razer", name: "Pro Type Ultra US", price: 200, imgPath: "../images/products/Keyboard_Razer%20Pro%20Type%20Ultra%20US.webp"}
 ]
 
 
