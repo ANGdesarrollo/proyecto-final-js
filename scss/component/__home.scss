@@ -31,10 +31,8 @@
         position: relative;
         width: 100%;
         .videos {
-          transition: all .3s ease;
           width: 100%;
           @include flex(flex, center, flex-start, row);
-          flex-wrap: nowrap;
           
           video {
             width: 100%;
