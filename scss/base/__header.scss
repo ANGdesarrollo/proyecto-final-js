@@ -27,7 +27,7 @@
     /* NAV */
 
     .nav {
-      z-index: 100;
+      z-index: 3;
       font-size: 1rem;
       display: flex;
       grid-column: 3 / 9;
@@ -170,7 +170,7 @@
       /* LOGO */
 
       .logo {
-        z-index: 2;
+        z-index: 100;
         background-color: $black; /* T */
         display: flex;
         align-items: center;
@@ -213,7 +213,8 @@
       .nav-active {
         top: 0;
         ul {
-          background-color: $grayTrans;
+          z-index: 5;
+          background-color: $black;
           top: inherit;
         }
       }
@@ -222,7 +223,7 @@
 
       .items {
         background-color: $black;
-        z-index: 2;
+        z-index: 100;
         grid-row: 1 / 2;
         display: flex;
         grid-column: 7 / 8;
@@ -252,7 +253,7 @@
 
       .search {
         background-color: $black; /* T */
-        z-index: 2; /* T */
+        z-index: 100; /* T */
         padding-bottom: 0;
         display: flex;
         align-items: center; /* T */

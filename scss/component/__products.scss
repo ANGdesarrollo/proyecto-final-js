@@ -1,10 +1,96 @@
 @import '../base/_vars';
 @import '../base/_mixins';
 
+.active-hidden {
+  right: -100%;
+}
+.hidden-shopping-cart {
+  background-color: $grayTrans95;
+  overflow-y: scroll;
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 40%;
+  transition: all .5s ease;
+  .hidden {
+    position: relative;
+    height: 100%;
+    &__title {
+      display: flex;
+      align-items: center;
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    &__shop-product {
+      font-size: .7rem;
+      @include flex(flex, center, flex-start, row);
+      flex-wrap: wrap;
+
+
+      .name-product {
+        width: 60%;
+      }
+
+      .img-product {
+        width: 20%;
+        img {
+          width: 70%;
+        }
+      }
+
+      .price-product-cart {
+        width: 20%;
+      }
+
+      .count-product {
+        border-radius: 5px;
+        background-color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 30px;
+
+        input {
+          text-align: center;
+          width: 1.5rem;
+        }
+
+        span {
+          color: $black;
+          width: .5rem;
+        }
+      }
+
+      .delete-product {
+        img {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+
+    &__shop-result {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
+
+.desactive-hidden {
+  right: 0;
+}
+
 .products-container {
+  min-height: 70vh;
   position: relative;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: fit-content(100%);
 
   &__video-background {
     top: 0;
@@ -22,6 +108,7 @@
     font-size: 0.7rem;
     background-color: $grayTrans;
     grid-column: 1 / 2;
+
     ul {
       padding: 0;
       margin: 0;
@@ -41,15 +128,15 @@
   }
 
   &__buy-products {
+
     padding: 3%;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     z-index: 2;
-    background-color: $grayTrans;
     grid-column: 2 / 6;
     .product-box {
-      margin: 2rem;
+      margin: 0 0.5rem 0 0.5rem;
       width: 300px;
       height: 420px;
 

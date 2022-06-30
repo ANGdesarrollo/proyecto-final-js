@@ -10,6 +10,8 @@
 </head>
 <body>
 
+
+
 <!--HEADER-->
 
 <header>
@@ -41,7 +43,7 @@
             <ul>
                 <li><a id="user" href="user.html"><img src="../images/header-images/header-user-a.webp"
                                                        alt="Log in / Register"></a></li>
-                <li><a id="shopping-cart" href="shopping-cart.html"><img src="../images/header-images/shopping-cart.png"
+                <li><a id="shopping-cart" href="#"><img id="js-active" src="../images/header-images/shopping-cart.png"
                                                                          alt="Shopping-Cart"></a></li>
             </ul>
         </section>
@@ -65,10 +67,16 @@
 
 
 <main>
+
     <div class="products-container">
+        <!--    HIDDEN DIV SHOPPING CART-->
+        <div class="hidden-shopping-cart active-hidden">
+            <div class="hidden">
+            </div>
+        </div>
 
         <div class="products-container__video-background">
-            <video class="video-container" src="../../images/products/background_products_chair.mp4" autoplay muted
+            <video class="video-container" src="../images/products/background_products_chair.mp4" autoplay muted
                    loop></video>
         </div>
 
@@ -85,11 +93,9 @@
             </div>
 
 
-
         </section>
 
         <section class="products-container__buy-products">
-
 
 
         </section>
@@ -104,23 +110,23 @@
     <div class="footer-abc">
         <div class="footer-a">
             <h3>EVERYTHING YOU ARE LOOKING FOR.</h3>
-            <img src="../../images/footer-images/joystick-footer.webp" alt="Logo of a joystick">
+            <img src="../images/footer-images/joystick-footer.webp" alt="Logo of a joystick">
+
         </div>
         <div class="footer-b">
-            <img id="logo-razer" src="../../images/footer-images/razer-logo-footer.webp" alt="Logo of Razer">
-            <img id="logo-corsair" src="../../images/footer-images/corsair-logo-footer.webp" alt="Logo of Corsair">
-            <img id="logo-logitech" src="../../images/footer-images/logitech-logo-footer.webp" alt="Logo of Logitech">
+            <img id="logo-razer" src="../images/footer-images/razer-logo-footer.webp" alt="Logo of Razer">
+            <img id="logo-corsair" src="../images/footer-images/corsair-logo-footer.webp" alt="Logo of Corsair">
+            <img id="logo-logitech" src="../images/footer-images/logitech-logo-footer.webp" alt="Logo of Logitech">
         </div>
         <div class="footer-c">
             <ul>
                 <li><a href="https://goo.gl/maps/LArbc5hoxP28NNdk9"><img
-                        src="../../images/footer-images/location-footer.webp" alt="Icon of location"></a>
+                        src="../images/footer-images/location-footer.webp" alt="Icon of location"></a>
                 </li>
                 <li><a href="https://api.whatsapp.com/send?phone=542915343707"><img
-                        src="../../images/footer-images/whatsapp-footer.webp" alt="Icon of Whatsapp"></a>
+                        src="../images/footer-images/whatsapp-footer.webp" alt="Icon of Whatsapp"></a>
                 </li>
-                <li><a href="../contact.html"><img src="../../images/footer-images/email-footer.webp"
-                                                   alt="Icon of email"></a>
+                <li><a href="contact.html"><img src="../images/footer-images/email-footer.webp" alt="Icon of email"></a>
                 </li>
             </ul>
         </div>
@@ -130,22 +136,24 @@
 
         <ul class="footer-d-a">
             <li><a class="img-footer-fb" href="https://www.facebook.com/"><img
-                    src="../../images/footer-images/facebook-footer.webp"
+                    src="../images/footer-images/facebook-footer.webp"
                     alt="Facebook icon"></a></li>
             <li><a class="img-footer-ig" href="https://www.instagram.com/"><img
-                    src="../../images/footer-images/instagram-footer.webp"
+                    src="../images/footer-images/instagram-footer.webp"
                     alt="Instagram icon"></a></li>
         </ul>
 
 
         <div class="footer-d-b">
-            <img src="../../images/footer-images/cellphone-footer.webp"
+            <img src="../images/footer-images/cellphone-footer.webp"
                  alt="Cellphone image with logo of the page">
         </div>
     </div>
 </footer>
 
+
 <script src="../js/products.js "></script>
 <script src="../js/animationHeader.js"></script>
+
 </body>
 </html>

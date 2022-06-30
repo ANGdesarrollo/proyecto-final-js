@@ -172,6 +172,7 @@
     &__container {
       grid-template-rows: 40vh auto;
       .home-a {
+        margin-bottom: 1rem;
         line-height: 3.5rem;
         grid-column: 1 / 6;
         h1 {
