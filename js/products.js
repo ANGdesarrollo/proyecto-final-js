@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const cartItems = [];
+    console.log(cartItems)
     // AGREGAR CATEGORIAS A LOS PRODUCTOS
 
     const products = ["KEYBOARD", "HEADSET", "MOUSE", "NOTEBOOK"];
@@ -113,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             qty: 1,
         }
 
+
         let exist = false;
         cartItems.forEach(item => {
             if (item.id === productInfo.id) {
@@ -121,15 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
 
-        if (exist === false) {
-            cartItems.push(productInfo);
-        }
+
+        exist === false && cartItems.push(productInfo)
 
         loadDom(cartItems);
         localStorage.setItem("carrito", JSON.stringify(cartItems));
 
-    }
 
+    }
 
 
     //CREAR CONTENIDO EN EL DOM
@@ -171,6 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         totalResult.textContent = `${resultado} USD`
 
         cartItems.forEach(product => {
+            console.log(product)
 
             // CREACION DE DOM
 
@@ -262,12 +264,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadLocalStorageData = () => {
         let carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
 
-        if (carritoGuardado != null) {
-            carritoGuardado.forEach(item => {
-                cartItems.push(item);
-
-            })
-        }
+        carritoGuardado != null && carritoGuardado.forEach(item => {
+            cartItems.push(item)
+        })
         loadDom(cartItems);
     }
 
