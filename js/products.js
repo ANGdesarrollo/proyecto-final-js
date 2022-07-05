@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+    )
+
     const cartItems = [];
     console.log(cartItems)
     // AGREGAR CATEGORIAS A LOS PRODUCTOS
