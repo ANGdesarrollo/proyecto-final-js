@@ -446,13 +446,11 @@ document.addEventListener("DOMContentLoaded", () => {
     function addNumberShop(shopCartSelected) {
         let container = document.getElementById("js-shopping-cart");
         let circleNumber = document.createElement("div");
-        circleNumber.innerHTML = "";
         let circleNumberp = document.createElement("p")
 
         container.append(circleNumber);
-        circleNumber.append(circleNumberh2)
-
-        circleNumber.innerHTML = "";
+        circleNumber.append(circleNumberp)
+        circleNumberp.innerHTML = "";
         circleNumberp.textContent = shopCartSelected.length;
 
     }
