@@ -169,9 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   // LOAD DOM CATEGORY
-  let containerCategory = document.querySelector(
-      ".products-container__list-products"
-  );
+  let containerCategory = document.querySelector(".products-container__list-products");
 
   function addCategoryDom() {
     //LLAMADO AL PADRE DEL HTML
@@ -448,9 +446,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function addNumberShop(shopCartSelected) {
     let container = document.getElementById("js-shopping-cart");
     let circleNumber = document.createElement("div");
-    container.append(circleNumber);
     circleNumber.innerHTML = "";
-    circleNumber.textContent = shopCartSelected.length;
+    let circleNumberp = document.createElement("p")
+
+    container.append(circleNumber);
+    circleNumber.append(circleNumberh2)
+
+
+    circleNumberp.textContent = shopCartSelected.length;
+
   }
 
   //DYNAMIC CHANGES IN THE CART
@@ -469,6 +473,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       localStorage.setItem("cart", JSON.stringify(shopCartSelected));
       loadDomProducts(shopCartSelected);
+      addNumberShop(shopCartSelected)
     });
 
     left.addEventListener("click", (e) => {
@@ -507,6 +512,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //REMOVE ALL ITEMS FROM CART
 
+  let prueba = []
+  console.log(prueba.length)
+
   function removeAllItemsCart(item, item2) {
     item.addEventListener("click", () => {
       const swalWithBootstrapButtons = Swal.mixin({
@@ -537,6 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
               item.innerHTML = "";
               localStorage.clear();
               shopCartSelected = [];
+              addNumberShop(shopCartSelected)
             }
           });
     });
