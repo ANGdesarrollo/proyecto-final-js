@@ -11,7 +11,6 @@
 <body>
 
 
-
 <!--HEADER-->
 
 <header>
@@ -43,8 +42,8 @@
             <ul>
                 <li><a id="user" href="user.html"><img src="../images/header-images/header-user-a.webp"
                                                        alt="Log in / Register"></a></li>
-                <li><a id="shopping-cart" href="#"><img id="js-active" src="../images/header-images/shopping-cart.png"
-                                                                         alt="Shopping-Cart"></a></li>
+                <li id="js-li-father"><a id="js-shopping-cart" href="#"><img id="js-active" src="../images/header-images/shopping-cart.png"
+                                                                             alt="Shopping-Cart"></a></li>
             </ul>
         </section>
 
@@ -71,28 +70,21 @@
     <div class="products-container">
         <!--    HIDDEN DIV SHOPPING CART-->
         <div class="hidden-shopping-cart active-hidden">
-            <div class="hidden">
-            </div>
+            <div id="js-hidden-title"></div>
+            <div class="hidden"></div>
+            <div id="js-hidden-total"></div>
         </div>
 
         <div class="products-container__video-background">
-            <video class="video-container" src="../images/products/background_products_chair.mp4" autoplay muted
+            <video id="js-video-change" class="video-container" src="../images/products/background_products_chair.mp4"
+                   autoplay muted
                    loop></video>
         </div>
 
         <section class="products-container__list-products">
             <div>
                 <h2>PRODUCTS</h2>
-                <img src="" alt="">
             </div>
-
-            <div>
-                <ul id="js-category">
-
-                </ul>
-            </div>
-
-
         </section>
 
         <section class="products-container__buy-products">
@@ -151,10 +143,10 @@
     </div>
 </footer>
 
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../js/products.js "></script>
 <script src="../js/animationHeader.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
 </html>

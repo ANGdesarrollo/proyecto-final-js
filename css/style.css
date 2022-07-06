@@ -710,27 +710,32 @@ html {
   right: -100%;
 }
 
+.swal-height {
+  display: flex;
+}
+
 .hidden-shopping-cart {
   background-color: rgba(66, 73, 73, 0.95);
   overflow-y: scroll;
-  z-index: 2000;
-  position: fixed;
+  z-index: 3;
   top: 0;
+  position: fixed;
   height: 100%;
   width: 40%;
   transition: all 0.5s ease;
 }
-.hidden-shopping-cart .hidden {
-  position: relative;
-  height: 100%;
-}
-.hidden-shopping-cart .hidden__title {
+.hidden-shopping-cart .hidden-title {
+  height: 5%;
   display: flex;
   align-items: center;
 }
-.hidden-shopping-cart .hidden__title img {
+.hidden-shopping-cart .hidden-title img {
   width: 1.5rem;
   height: 1.5rem;
+}
+.hidden-shopping-cart .hidden {
+  position: relative;
+  height: 80%;
 }
 .hidden-shopping-cart .hidden__shop-product {
   font-size: 0.7rem;
@@ -773,9 +778,10 @@ html {
   width: 1.5rem;
   height: 1.5rem;
 }
-.hidden-shopping-cart .hidden__shop-result {
-  position: absolute;
-  bottom: 0;
+.hidden-shopping-cart .hidden-total {
+  height: 15%;
+  align-items: flex-start;
+  display: flex;
 }
 
 .desactive-hidden {
