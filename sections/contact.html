@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <!--    LINK CSS-->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- LINK GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div class="header__container">
+            <section class="logo">
+                <a href="home.html"><img src="../images/header-images/logo-header.webp" alt="Logo" /></a>
+            </section>
+            <nav class="nav">
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li class="main-dropdown">
+                        <a href="#">PRODUCTS </a><img class="search-icon1" src="../images/header-images/dropdown.png"
+                            alt="" />
+
+                        <ul class="dropdown">
+                            <li><a href="products.html">KEYBOARD</a></li>
+                            <li><a href="#">MOUSE</a></li>
+                            <li><a href="#">HEADSET</a></li>
+                            <li><a href="#">NOTEBOOK</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="return-policy.html">RETURN POLICY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+
+            <section class="items">
+                <ul>
+                    <li>
+                        <a id="user" href="#"><img src="../images/header-images/header-user-a.webp"
+                                alt="Log in / Register" /></a>
+                    </li>
+                    <li>
+                        <a id="shopping-cart" href="#"><img src="../images/header-images/shopping-cart.png"
+                                alt="Shopping-Cart" /></a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="search">
+                <div class="search-icon">
+                    <img src="../images/header-images/search-icon.webp" alt="Search Icon" />
+                </div>
+                <div class="search-input">
+                    <input type="text" placeholder="Search" />
+                </div>
+            </section>
+
+            <section class="header__bars-menu">
+                <img class="img-hambur" src="../images/header-images/hamburguesa.png" alt="Desplegable Icon" />
+            </section>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="form">
+            <div class="form__icons">
+                <ul>
+                    <li>
+                        <a href="https://api.whatsapp.com/send?phone=542915343707"><img
+                                src="../images/footer-images/whatsapp-footer.webp" alt="icon whatsapp" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com"><img src="../images/footer-images/facebook-footer.webp"
+                                alt="icon fb" /></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com"><img src="../images/footer-images/instagram-footer.webp"
+                                alt="icon ig" /></a>
+                    </li>
+                    <li>
+                        <a href="https://goo.gl/maps/LArbc5hoxP28NNdk9"><img
+                                src="../images/footer-images/location-footer.webp" alt="icon google map" /></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="form__form-part">
+                
+                <div class="points-form">
+                    <span id="span-point-a"></span>
+                    <span id="span-point-b"></span>
+                    <span id="span-point-c"></span>
+                </div>
+                <div class="title-form">
+                    <span>CONTACT</span>
+                    <span id="subline-form">US</span>
+                </div>
+
+                <form action="../php/form.php" method="POST" class="inputs-form">
+                    <div class="container-form-group">
+                        <div class="app-form-group">
+                            <label for="name">Name</label>
+                            <input id="name" class="app-form-control" placeholder="Ej: Alexis Graff" name="name" required />
+                        </div>
+                        <div class="app-form-group">
+                            <label for="email">Email</label>
+                            <input id="email" class="app-form-control" placeholder="Ej: gameon@gmail.com"
+                                   name="email" required>
+                        </div>
+                        <div class="app-form-group">
+                            <label for="contact">Phone Number</label>
+                            <input id="contact" class="app-form-control" placeholder="Ej: +54 (291) 5343707"
+                                   name="contact">
+                        </div>
+                        <div class="app-form-group message">
+                            <label for="message">Message</label>
+                            <input id="message" class="app-form-control" placeholder="Write Here"
+                                   name="message">
+                        </div>
+                        <div class="buttons">
+                            <button type="submit" class="app-form-button">CANCEL</button>
+                            <button type="submit" class="app-form-button">SEND</button>
+                        </div>
+
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-abc">
+            <div class="footer-a">
+                <h3>EVERYTHING YOU ARE LOOKING FOR.</h3>
+                <img src="../images/footer-images/joystick-footer.webp" alt="Logo of a joystick" />
+            </div>
+            <div class="footer-b">
+                <img id="logo-razer" src="../images/footer-images/razer-logo-footer.webp" alt="Logo of Razer" />
+                <img id="logo-corsair" src="../images/footer-images/corsair-logo-footer.webp" alt="Logo of Corsair" />
+                <img id="logo-logitech" src="../images/footer-images/logitech-logo-footer.webp"
+                    alt="Logo of Logitech" />
+            </div>
+            <div class="footer-c">
+                <ul>
+                    <li>
+                        <a href="https://goo.gl/maps/LArbc5hoxP28NNdk9"><img
+                                src="../images/footer-images/location-footer.webp" alt="Icon of location" /></a>
+                    </li>
+                    <li>
+                        <a href="https://api.whatsapp.com/send?phone=542915343707"><img
+                                src="../images/footer-images/whatsapp-footer.webp" alt="Icon of Whatsapp" /></a>
+                    </li>
+                    <li>
+                        <a href="contact.html"><img src="../images/footer-images/email-footer.webp"
+                                alt="Icon of email" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-d">
+            <ul class="footer-d-a">
+                <li>
+                    <a class="img-footer-fb" href="https://www.facebook.com/"><img
+                            src="../images/footer-images/facebook-footer.webp" alt="Facebook icon" /></a>
+                </li>
+                <li>
+                    <a class="img-footer-ig" href="https://www.instagram.com/"><img
+                            src="../images/footer-images/instagram-footer.webp" alt="Instagram icon" /></a>
+                </li>
+            </ul>
+
+            <div class="footer-d-b">
+                <img src="../images/footer-images/cellphone-footer.webp" alt="Cellphone image with logo of the page" />
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/animationHeader.js"></script>
+    <script src="../js/log-in-register.js"></script>
+</body>
+
+</html>

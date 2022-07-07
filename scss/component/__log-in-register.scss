@@ -1,0 +1,193 @@
+@import "../base/_mixins";
+@import "../base/_vars";
+
+.container-general-log-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  background-color: $graySuperTrans;
+  height: 100vh;
+  width: 100%;
+  z-index: 5000;
+
+
+
+  .container-log-in {
+    transition: all ease 5s;
+    display: flex;
+    flex-wrap: wrap;
+    width: 20%;
+    height: 50%;
+    background-color: $grayForm;
+
+    .form-container-user {
+      width: 100%;
+      height: 91%;
+
+      .title-user {
+        font-weight: bold;
+        font-size: 2rem;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+
+        span {
+          height: fit-content;
+          padding-left: 10px;
+        }
+
+        #span-left-title-user {
+          width: fit-content;
+          position: relative;
+        }
+
+        #span-left-title-user::before {
+          position: absolute;
+          content: "";
+          padding: 5px;
+          background-color: $lightBlue;
+          bottom: 0;
+          width: 80%;
+        }
+      }
+
+
+
+      .user-container-data {
+        @include flex(flex, center, flex-start, column);
+
+        .complete-data {
+          padding: 3%;
+          width: 100%;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+
+          label {
+            color: $grayForm;
+          }
+
+          input {
+            width: 70%;
+            font-size: .7rem;
+            background: none;
+            border: none;
+            text-transform: uppercase;
+            outline: none;
+            border-bottom: 1px solid $grayTrans;
+            text-align: center;
+          }
+
+          ::placeholder {
+            color: $white;
+            border: none;
+            font-size: .7rem;
+          }
+
+          input:focus {
+            border-bottom-color: $white;
+          }
+        }
+      }
+
+      .register-user {
+        padding-top: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        button {
+          background-color: $lightBlue;
+          width: 30%;
+          height: 40px;
+          border: none;
+          color: white;
+        }
+
+        button:hover {
+          background-color: steelblue;
+        }
+      }
+
+      .active-register-user {
+        padding: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        button {
+          background-color: $lightBlue;
+          width: 30%;
+          height: 40px;
+          border: none;
+          color: white;
+        }
+
+        button:hover {
+          background-color: steelblue;
+        }
+      }
+    }
+  }
+
+
+
+
+  .upper-container {
+    position: relative;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: $grayForm-1;
+    width: 100%;
+    height: 9%;
+
+    img {
+      position: absolute;
+      right: 0;
+      width: 35px;
+      height: 35px;
+    }
+
+    #js-span-a {
+      margin-right: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      content: "";
+      background-color: $lightBlue;
+
+    }
+
+    #js-span-b {
+      margin-right: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      content: "";
+      background-color: $lightBlue-degrade;
+
+    }
+
+    #js-span-c {
+      margin-right: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      content: "";
+      background-color: $lightBlue-degrade-1;
+
+    }
+
+
+  }
+
+
+}

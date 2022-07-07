@@ -1,0 +1,177 @@
+@import "../base/_mixins";
+@import "../base/_vars";
+
+.main {
+  height: 85vh;
+  background-image: url(../images/contact/background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0 3rem 0;
+  .form {
+    padding: 2.5% 2% 2.5% 0;
+    grid-template-columns: repeat(7, 1fr);
+    display: grid;
+    width: 47%;
+    height: 90%;
+    background-color: $grayTrans;
+
+    &__icons {
+      grid-column: 1 / 2;
+      ul {
+        @include flex(flex, center, space-around, column);
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        li {
+          list-style: none;
+          a {
+            display: flex;
+            justify-content: center;
+            img {
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+
+    &__form-part {
+      background-color: $grayForm;
+      grid-column: 2 / 8;
+      grid-template-columns: repeat(7, 1fr);
+      grid-template-rows: 2rem auto;
+      display: grid;
+
+      .points-form {
+        display: flex;
+        align-items: center;
+        background-color: $grayForm-1;
+        padding-left: 1.5rem;
+        grid-column: 1 / 8;
+
+        #span-point-a {
+          margin-right: 7px;
+          border-radius: 50%;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          content: "";
+          background-color: $lightBlue;
+        }
+        #span-point-b {
+          margin-right: 7px;
+          border-radius: 50%;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          content: "";
+          background-color: $lightBlue-degrade;
+        }
+        #span-point-c {
+          margin-right: 7px;
+          border-radius: 50%;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          content: "";
+          background-color: $lightBlue-degrade-1;
+        }
+      }
+
+      .title-form {
+        padding: 25%;
+        font-weight: bold;
+        font-size: 2rem;
+        grid-column: 1 / 4;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        span {
+          display: block;
+        }
+
+        #subline-form {
+          width: fit-content;
+          position: relative;
+        }
+
+        #subline-form::before {
+          position: absolute;
+          content: "";
+          padding: 5px;
+          background-color: $lightBlue;
+          bottom: -0.5rem;
+          width: 100%;
+        }
+      }
+
+      .inputs-form {
+        @include flex(flex, center, center, column);
+        grid-column: 4 / 8;
+        display: flex;
+
+        .container-form-group {
+            @include flex(flex, center, center, column);
+        
+          height:100%;
+          width: 80%;
+
+          .app-form-group {
+            margin-bottom: 4%;
+            margin-top: 4%;
+            font-size: 0.8rem;
+            width: 100%;
+            @include flex(flex, flex-start, center, column);
+            input {
+              width: 80%;
+              padding: 10px 0;
+              background: none;
+              border: none;
+              border-bottom: 1px solid $grayTrans;
+              color: $white;
+              font-size: 14px;
+              text-transform: uppercase;
+              outline: none;
+            }
+
+            input:focus {
+              border-bottom-color: $white;
+            }
+
+            ::placeholder {
+              border: none;
+              color: $grayTrans;
+            }
+          }
+
+          .buttons {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+           
+            .app-form-button {
+              margin: 10px;
+              background: none;
+              border: none;
+              color: $lightBlue;
+              font-size: 14px;
+              cursor: pointer;
+              outline: none;
+            }
+
+            .app-form-button:hover {
+              color: $black-hsl;
+            }
+          }
+        }
+      }
+    }
+  }
+}

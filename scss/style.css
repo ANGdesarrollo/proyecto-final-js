@@ -877,6 +877,376 @@ html {
   text-align: center;
 }
 
+.main {
+  height: 85vh;
+  background-image: url(../images/contact/background.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0 3rem 0;
+}
+.main .form {
+  padding: 2.5% 2% 2.5% 0;
+  grid-template-columns: repeat(7, 1fr);
+  display: grid;
+  width: 47%;
+  height: 90%;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+.main .form__icons {
+  grid-column: 1/2;
+}
+.main .form__icons ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.main .form__icons ul li {
+  list-style: none;
+}
+.main .form__icons ul li a {
+  display: flex;
+  justify-content: center;
+}
+.main .form__icons ul li a img {
+  width: 50px;
+  height: 50px;
+}
+.main .form__form-part {
+  background-color: #3e3e3e;
+  grid-column: 2/8;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 2rem auto;
+  display: grid;
+}
+.main .form__form-part .points-form {
+  display: flex;
+  align-items: center;
+  background-color: #4d4d4f;
+  padding-left: 1.5rem;
+  grid-column: 1/8;
+}
+.main .form__form-part .points-form #span-point-a {
+  margin-right: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  content: "";
+  background-color: #29d0fd;
+}
+.main .form__form-part .points-form #span-point-b {
+  margin-right: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  content: "";
+  background-color: hsl(193deg, 80%, 58%);
+}
+.main .form__form-part .points-form #span-point-c {
+  margin-right: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  content: "";
+  background-color: hsl(193deg, 50%, 58%);
+}
+.main .form__form-part .title-form {
+  padding: 25%;
+  font-weight: bold;
+  font-size: 2rem;
+  grid-column: 1/4;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.main .form__form-part .title-form span {
+  display: block;
+}
+.main .form__form-part .title-form #subline-form {
+  width: fit-content;
+  position: relative;
+}
+.main .form__form-part .title-form #subline-form::before {
+  position: absolute;
+  content: "";
+  padding: 5px;
+  background-color: #29d0fd;
+  bottom: -0.5rem;
+  width: 100%;
+}
+.main .form__form-part .inputs-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  grid-column: 4/8;
+  display: flex;
+}
+.main .form__form-part .inputs-form .container-form-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 80%;
+}
+.main .form__form-part .inputs-form .container-form-group .app-form-group {
+  margin-bottom: 4%;
+  margin-top: 4%;
+  font-size: 0.8rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.main .form__form-part .inputs-form .container-form-group .app-form-group input {
+  width: 80%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  outline: none;
+}
+.main .form__form-part .inputs-form .container-form-group .app-form-group input:focus {
+  border-bottom-color: #fff;
+}
+.main .form__form-part .inputs-form .container-form-group .app-form-group ::placeholder {
+  border: none;
+  color: rgba(128, 128, 128, 0.5);
+}
+.main .form__form-part .inputs-form .container-form-group .buttons {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.main .form__form-part .inputs-form .container-form-group .buttons .app-form-button {
+  margin: 10px;
+  background: none;
+  border: none;
+  color: #29d0fd;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+.main .form__form-part .inputs-form .container-form-group .buttons .app-form-button:hover {
+  color: hsl(323deg, 21%, 16%);
+}
+
+.success-container {
+  font-family: "Cairo", sans-serif;
+  margin: 5%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.success-container .container-confirmation {
+  background-color: rgba(128, 128, 128, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  width: 400px;
+  border: 2px solid white;
+}
+.success-container .container-confirmation .img-success {
+  padding: 40px 40px 20px 40px;
+  display: flex;
+  justify-content: center;
+}
+.success-container .container-confirmation .img-success img {
+  width: 20%;
+}
+.success-container .container-confirmation .awesome {
+  padding: 5px;
+}
+.success-container .container-confirmation .description-success {
+  padding: 20px;
+}
+.success-container .container-confirmation .button-ok {
+  padding: 40px;
+}
+.success-container .container-confirmation .button-ok a {
+  font-weight: bold;
+  font-size: 1em;
+  text-decoration: none;
+  color: #000000;
+  padding: 5px 70px;
+  background-color: #29d0fd;
+}
+
+.container-general-log-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  background-color: rgba(128, 128, 128, 0.4);
+  height: 100vh;
+  width: 100%;
+  z-index: 5000;
+}
+.container-general-log-in .container-log-in {
+  transition: all ease 5s;
+  display: flex;
+  flex-wrap: wrap;
+  width: 20%;
+  height: 50%;
+  background-color: #3e3e3e;
+}
+.container-general-log-in .container-log-in .form-container-user {
+  width: 100%;
+  height: 91%;
+}
+.container-general-log-in .container-log-in .form-container-user .title-user {
+  font-weight: bold;
+  font-size: 2rem;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
+.container-general-log-in .container-log-in .form-container-user .title-user span {
+  height: fit-content;
+  padding-left: 10px;
+}
+.container-general-log-in .container-log-in .form-container-user .title-user #span-left-title-user {
+  width: fit-content;
+  position: relative;
+}
+.container-general-log-in .container-log-in .form-container-user .title-user #span-left-title-user::before {
+  position: absolute;
+  content: "";
+  padding: 5px;
+  background-color: #29d0fd;
+  bottom: 0;
+  width: 80%;
+}
+.container-general-log-in .container-log-in .form-container-user .user-container-data {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data {
+  padding: 3%;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data label {
+  color: #3e3e3e;
+}
+.container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data input {
+  width: 70%;
+  font-size: 0.7rem;
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  outline: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+  text-align: center;
+}
+.container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data ::placeholder {
+  color: #fff;
+  border: none;
+  font-size: 0.7rem;
+}
+.container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data input:focus {
+  border-bottom-color: #fff;
+}
+.container-general-log-in .container-log-in .form-container-user .register-user {
+  padding-top: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.container-general-log-in .container-log-in .form-container-user .register-user button {
+  background-color: #29d0fd;
+  width: 30%;
+  height: 40px;
+  border: none;
+  color: white;
+}
+.container-general-log-in .container-log-in .form-container-user .register-user button:hover {
+  background-color: steelblue;
+}
+.container-general-log-in .container-log-in .form-container-user .active-register-user {
+  padding: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.container-general-log-in .container-log-in .form-container-user .active-register-user button {
+  background-color: #29d0fd;
+  width: 30%;
+  height: 40px;
+  border: none;
+  color: white;
+}
+.container-general-log-in .container-log-in .form-container-user .active-register-user button:hover {
+  background-color: steelblue;
+}
+.container-general-log-in .upper-container {
+  position: relative;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  background-color: #4d4d4f;
+  width: 100%;
+  height: 9%;
+}
+.container-general-log-in .upper-container img {
+  position: absolute;
+  right: 0;
+  width: 35px;
+  height: 35px;
+}
+.container-general-log-in .upper-container #js-span-a {
+  margin-right: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  content: "";
+  background-color: #29d0fd;
+}
+.container-general-log-in .upper-container #js-span-b {
+  margin-right: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  content: "";
+  background-color: hsl(193deg, 80%, 58%);
+}
+.container-general-log-in .upper-container #js-span-c {
+  margin-right: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  content: "";
+  background-color: hsl(193deg, 50%, 58%);
+}
+
 footer {
   display: flex;
   padding-left: 5%;
