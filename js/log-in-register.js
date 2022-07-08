@@ -1,5 +1,7 @@
 const iconUser = document.getElementById("user");
 const body = document.querySelector("body");
+const localStorageUser = [];
+const userLoggedIn = [];
 
 iconUser.addEventListener("click", () => {
     let containerGeneral = document.createElement("div");
@@ -9,7 +11,7 @@ iconUser.addEventListener("click", () => {
     let spanPoint2 = document.createElement("span");
     let spanPoint3 = document.createElement("span");
     let closeImg = document.createElement("img");
-    let containerForm = document.createElement("div");
+    let containerForm = document.createElement("form");
     let divTitle = document.createElement("div");
     let titleSpan1 = document.createElement("span");
     let titleSpan2 = document.createElement("span");
@@ -21,6 +23,7 @@ iconUser.addEventListener("click", () => {
     let labelPassword = document.createElement("label");
     let inputPassword = document.createElement("input");
     let registerUser = document.createElement("div");
+    let buttonLogIn = document.createElement("button");
     let buttonRegister = document.createElement("button");
 
 
@@ -41,6 +44,7 @@ iconUser.addEventListener("click", () => {
     containerForm.append(divTitle);
     containerForm.append(divUserContainer);
     containerForm.append(registerUser);
+    registerUser.append(buttonLogIn);
     registerUser.append(buttonRegister);
     divUserContainer.append(divUser, divPassword);
     divUser.append(labelUser, inputUser);
@@ -55,13 +59,19 @@ iconUser.addEventListener("click", () => {
     titleSpan1.textContent = "LOG";
     titleSpan2.textContent = "IN";
     closeImg.setAttribute("src", "../images/user/close.png");
-    labelUser.textContent = "User";
-    labelPassword.textContent = "Password";
-    inputUser.setAttribute("placeholder", "user")
+    labelUser.textContent = "USER";
+    labelUser.setAttribute("for", "name-user");
+    labelPassword.textContent = "PASSWORD";
+    labelPassword.setAttribute("for", "password-user");
+    inputUser.setAttribute("placeholder", "user");
+    inputUser.setAttribute("id", "name-user");
+    inputPassword.setAttribute("id", "password-user");
     inputPassword.setAttribute('placeholder', "password");
     inputPassword.setAttribute('type', "password");
+    buttonLogIn.textContent = "Log In";
     buttonRegister.textContent = "Register";
 
+    logInUser(buttonLogIn, containerForm, container);
 
     buttonRegister.addEventListener("click", () => {
         titleSpan1.textContent = "SIGN";
@@ -76,32 +86,97 @@ iconUser.addEventListener("click", () => {
 
 
         divRepeatPassword.classList.add("complete-data");
-        confirmUser.classList.add("active-register-user");
+        confirmUser.classList.add("register-user");
 
         divUserContainer.append(divRepeatPassword);
         divRepeatPassword.append(labelRepeatPassword, inputRepeatPassword);
         containerForm.append(confirmUser);
         confirmUser.append(buttonConfirm);
 
-        labelRepeatPassword.textContent = "Repeat Password";
+        labelRepeatPassword.textContent = "REPEAT PASSWORD";
+        labelRepeatPassword.setAttribute("for", "repeat-password");
         inputPassword.setAttribute('type', "password");
         inputRepeatPassword.setAttribute("placeholder", "repeat password");
         inputRepeatPassword.setAttribute("type", "password");
+        inputRepeatPassword.setAttribute("id", "repeat-password");
         buttonConfirm.textContent = "Submit";
+        inputUser.setAttribute("name", "nameUser");
+        inputPassword.setAttribute("name", "passwordUser");
+        inputRepeatPassword.setAttribute("name", "repeatPasswordUser");
 
         registerUser.remove();
         buttonRegister.remove();
+
+        captureData(buttonConfirm, containerForm);
+
 
 
     })
 
     removeScreen(containerGeneral, closeImg);
+
+
+
 })
 
-function captureData () {
+function captureData(register, form) {
+    register.addEventListener("click", (event) => {
+        event.preventDefault();
 
+        if(form.querySelector("#password-user").value != form.querySelector("#repeat-password").value) {
+            alert("password don't match");
+        } else if(form.querySelector("#name-user").value == "") {
+            alert("El campo de usuario es obligatorio!")
+        } else if(form.querySelector("#password-user").value == form.querySelector("#repeat-password").value) {
+            let capturaData = {
+                user: form.querySelector("#name-user").value,
+                password: form.querySelector("#password-user").value
+            }
+            localStorageUser.push(capturaData);
+            localStorage.setItem("user", JSON.stringify(localStorageUser));
+        }
+    })
+}
+
+
+
+function logInUser(button, form, animation) {
+    let saveStorageUser = JSON.parse(localStorage.getItem("user"));
+    button.addEventListener("click",(e) => {
+        e.preventDefault();
+
+        if(saveStorageUser == null) {
+            alert("Usuario o contraseña incorrecto")
+        } else {
+            let checkUser = saveStorageUser.filter(item => item.user == form.querySelector("#name-user").value);
+            let checkPassword = saveStorageUser.filter(item => item.password == form.querySelector("#password-user").value);
+            console.log(checkUser)
+            console.log(checkPassword)
+            if (checkUser.length == 0 || checkPassword.length == 0) {
+                alert("usuario o contraseña incorrecto")
+            } else if(checkUser[0].user == form.querySelector("#name-user").value && checkPassword[0].password == form.querySelector("#password-user").value) {
+                alert("esto es correcto")
+                let userLogged = {
+                    user: checkUser[0].user,
+                    password: checkPassword[0].password
+                }
+
+                userLoggedIn.push(userLogged);
+                localStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
+
+
+                
+            }
+        }
+
+    })
 
 }
+
+
+
+
+
 
 function removeScreen(containerGeneral, closeImg) {
     window.addEventListener("keydown", (element) => {

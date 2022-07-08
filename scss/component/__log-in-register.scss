@@ -13,13 +13,11 @@
   z-index: 5000;
 
 
-
   .container-log-in {
-    transition: all ease 5s;
     display: flex;
     flex-wrap: wrap;
     width: 20%;
-    height: 50%;
+    height: 460px;
     background-color: $grayForm;
 
     .form-container-user {
@@ -74,7 +72,6 @@
             font-size: .7rem;
             background: none;
             border: none;
-            text-transform: uppercase;
             outline: none;
             border-bottom: 1px solid $grayTrans;
             text-align: center;
@@ -93,13 +90,16 @@
       }
 
       .register-user {
-        padding-top: 20%;
+        padding-top: 10%;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         width: 100%;
 
         button {
+          border-radius: .2rem;
+          margin: .5rem;
           background-color: $lightBlue;
           width: 30%;
           height: 40px;
@@ -109,33 +109,11 @@
 
         button:hover {
           background-color: steelblue;
-        }
-      }
-
-      .active-register-user {
-        padding: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-
-        button {
-          background-color: $lightBlue;
-          width: 30%;
-          height: 40px;
-          border: none;
-          color: white;
-        }
-
-        button:hover {
-          background-color: steelblue;
+          transform: translateY(2px);
         }
       }
     }
   }
-
-
-
 
   .upper-container {
     position: relative;

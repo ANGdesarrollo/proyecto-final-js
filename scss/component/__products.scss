@@ -12,7 +12,6 @@
 
 .hidden-shopping-cart {
   background-color: $grayTrans95;
-  overflow-y: scroll;
   z-index: 3;
   top: 0;
   position: fixed;
@@ -31,11 +30,13 @@
     }
   }
   .hidden {
+    overflow-y: scroll;
     position: relative;
     height: 80%;
   
   
     &__shop-product {
+
       font-size: .7rem;
       @include flex(flex, center, flex-start, row);
       flex-wrap: wrap;
@@ -86,9 +87,10 @@
     }
   }
 
-  .hidden-total {
+  #js-hidden-total {
     height: 15%;
     align-items: flex-start;
+    flex-direction: column;
     display: flex;
 
   }
@@ -129,12 +131,14 @@
       margin: 0;
 
       li {
+        cursor: pointer;
         margin: 1rem 0 1rem 0;
         border-bottom: 2px solid $white;
         width: 100%;
         list-style: none;
 
         a {
+          
           color: $white;
           text-decoration: none;
         }
@@ -153,51 +157,94 @@
     z-index: 2;
     grid-column: 2 / 6;
 
+    .product-box:hover {
+      transform: translateY(-.2rem)
+
+    }
+
     .product-box {
+      transition: all .5s ease;
+      padding-bottom: .5rem;
       margin: 0 0.5rem 0 0.5rem;
       width: 300px;
       height: 420px;
-      background-color: $grayTrans;
+      background-color: $grayTrans2;
       @include flex(flex, center, space-around, column);
 
+      h4 {
+        text-transform: uppercase;
+      }
+
       .img-product-container {
+        
         display: flex;
         justify-content: center;
 
         img {
-          width: 90%;
+          width: 95%;
         }
       }
 
+      .price-product-container::before {
+        content: '';
+        padding: 0.5px;
+        width: 50%;
+        height: 0.5px;
+        background-color: $white;
+        position: absolute;
+        top: 0;
+      }
+
       .price-product-container {
+        position: relative;
+        padding-top: .8rem;
+        
+        padding-bottom: .5rem;
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
         width: 100%;
         height: 100%;
 
         .price-product {
+          border-radius: 3px;
+          display: flex;
+          align-items: center;
+          padding: 0 10px 0 10px;
+          font-size: 2rem;
+          font-weight: bold;
+          background-color: $lightBlue;
           text-align: center;
-          width: 70%;
+          width: fit-content;
         }
 
         .shopping-img {
-          width: 30%;
+          cursor: pointer;
+          margin-left: 1rem;
+          display: flex;
+          justify-content: center;
+          width: 35%;
 
           img {
+            transition: all .5s ease;
             width: 50%;
+          }
+
+          img:hover {
+            transform: scale(1.1)
           }
         }
       }
 
       .name-product {
+        font-size: .7rem;
         width: 100%;
         height: 100%;
-        border-top: 2px solid $white;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
+        margin-bottom: .5rem;
       }
 
     }

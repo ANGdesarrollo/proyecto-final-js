@@ -1,0 +1,166 @@
+[
+  {
+    "name": "KEYBOARD",
+    "id": 0,
+    "KEYBOARD": [
+      {
+        "id": 0,
+        "category": "Keyboard",
+        "brand": "Razer",
+        "name": "Huntsman V2 Analog US",
+        "price": 200,
+        "imgPath": "../images/products/Keyboard_0.webp",
+        "qty": 1
+      },
+      {
+        "id": 1,
+        "category": "Keyboard",
+        "brand": "Razer",
+        "name": "Huntsman V2 Tenkeyless Linear Optical Switch",
+        "price": 250,
+        "imgPath": "../images/products/Keyboard_1.webp",
+        "qty": 1
+      },
+      {
+        "id": 2,
+        "category": "Keyboard",
+        "brand": "Razer",
+        "name": "Huntsman Mini Linear Optical Switch",
+        "price": 170,
+        "imgPath": "../images/products/Keyboard_2.webp",
+        "qty": 1
+      },
+      {
+        "id": 3,
+        "category": "Keyboard",
+        "brand": "Razer",
+        "name": "Pro Type Ultra US",
+        "price": 200,
+        "imgPath": "../images/products/Keyboard_3.webp",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "HEADSET",
+    "id": 1,
+    "HEADSET": [
+      {
+        "id": 0,
+        "category": "Headset",
+        "brand": "Razer",
+        "name": "BlackShark V2 Pro Black",
+        "price": 200,
+        "imgPath": "../images/products/Headset_0.webp",
+        "qty": 1
+      },
+      {
+        "id": 1,
+        "category": "Headset",
+        "brand": "Razer",
+        "name": "BlackShark V2 Six Siege Edition",
+        "price": 250,
+        "imgPath": "../images/products/Headset_1.webp",
+        "qty": 1
+      },
+      {
+        "id": 2,
+        "category": "Headset",
+        "brand": "Razer",
+        "name": "BlackShark V2 White Edition",
+        "price": 170,
+        "imgPath": "../images/products/Headset_2.webp",
+        "qty": 1
+      },
+      {
+        "id": 3,
+        "category": "Headset",
+        "brand": "Razer",
+        "name": "Pro Type Ultra US",
+        "price": 200,
+        "imgPath": "../images/products/Headset_3.webp",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "name": "MOUSE",
+    "id": 2,
+    "MOUSE": [
+      {
+        "id": 0,
+        "category": "Mouse",
+        "brand": "Razer",
+        "name": "Viper Ultimate Quartz",
+        "price": 200,
+        "imgPath": "../images/products/Mouse_0.webp"
+      },
+      {
+        "id": 1,
+        "category": "Mouse",
+        "brand": "Razer",
+        "name": "Viper Ultimate Mercury",
+        "price": 250,
+        "imgPath": "../images/products/Mouse_1.webp"
+      },
+      {
+        "id": 2,
+        "category": "Mouse",
+        "brand": "Razer",
+        "name": "Viper Ultimate Black",
+        "price": 170,
+        "imgPath": "../images/products/Mouse_2.webp"
+      },
+      {
+        "id": 3,
+        "category": "Mouse",
+        "brand": "Razer",
+        "name": "Viper 8KHz ESL Edition",
+        "price": 200,
+        "imgPath": "../images/products/Mouse_3.webp"
+      }
+    ]
+  },
+  {
+    "name": "NOTEBOOK",
+    "id": 3,
+    "NOTEBOOK": [
+      {
+        "id": 0,
+        "category": "Notebook",
+        "brand": "Razer",
+        "name": "Blade 14-QHD 165Hz GeForce RTX 3080Ti",
+        "price": 1200,
+        "imgPath": "../images/products/Notebook_0.webp",
+        "qty": 1
+      },
+      {
+        "id": 1,
+        "category": "Notebook",
+        "brand": "Razer",
+        "name": "Razer Blade 15 - UHD 144Hz GeForce RTX 3080Ti",
+        "price": 1250,
+        "imgPath": "../images/products/Notebook_1.webp",
+        "qty": 1
+      },
+      {
+        "id": 2,
+        "category": "Notebook",
+        "brand": "Razer",
+        "name": "Razer Blade 17 . QHD 240Hz GeForce RTX 3070 Ti",
+        "price": 1170,
+        "imgPath": "../images/products/Notebook_2.webp",
+        "qty": 1
+      },
+      {
+        "id": 3,
+        "category": "Notebook",
+        "brand": "Razer",
+        "name": "Book - UHD Touch 60Hz - Intel® Iris® Xe",
+        "price": 1200,
+        "imgPath": "../images/products/Notebook_3.webp",
+        "qty": 1
+      }
+    ]
+  }
+]
