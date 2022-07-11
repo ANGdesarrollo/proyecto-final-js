@@ -75,7 +75,7 @@ function createDivLogIn() {
     buttonLogIn.textContent = "Log In";
     buttonRegister.textContent = "Register";
 
-    logInUser(buttonLogIn, containerForm, container);
+    logInUser(buttonLogIn, containerForm, containerGeneral);
 
     buttonRegister.addEventListener("click", () => {
         titleSpan1.textContent = "SIGN";
@@ -143,7 +143,7 @@ function captureData(register, form, deleteDiv) {
     })
 }
 
-function logInUser(button, form, animation) {
+function logInUser(button, form, deleteDiv) {
     let saveStorageUser = JSON.parse(localStorage.getItem("user"));
     button.addEventListener("click", (e) => {
         e.preventDefault();
@@ -166,6 +166,8 @@ function logInUser(button, form, animation) {
 
                 userLoggedIn.push(userLogged);
                 localStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
+                deleteDiv.innerHTML = "";
+                deleteDiv.classList.remove("container-general-log-in");
 
 
             }

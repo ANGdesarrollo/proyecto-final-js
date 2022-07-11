@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // FUNCION PARA AGREGAR PRODUCTOS AL HACER CLICK EN ALGUNA CATEGORIA
         function addProductsDom() {
             let lowerPrice = document.getElementById("js-filter-price-input");
+            let higherPrice = document.getElementById("js-filter-price-input2");
             let liCategory = document.querySelectorAll(".category-li");
             let videoChange = document.getElementById("js-video-change");
 
@@ -64,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (e.target.id == 0) {
                         lowerPrice.checked = false;
+                        higherPrice.checked = false;
                         targetCategory(data[0].KEYBOARD)
                         localStorage.removeItem("productSelected");
                         localStorage.setItem("productSelected", JSON.stringify(data[0].KEYBOARD));
@@ -72,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     } else if (e.target.id == 1) {
                         lowerPrice.checked = false;
+                        higherPrice.checked = false;
                         targetCategory(data[1].HEADSET);
                         localStorage.removeItem("productSelected");
                         localStorage.setItem("productSelected", JSON.stringify(data[1].HEADSET));
@@ -81,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         );
                     } else if (e.target.id == 2) {
                         lowerPrice.checked = false;
+                        higherPrice.checked = false;
                         targetCategory(data[2].MOUSE);
                         localStorage.removeItem("productSelected");
                         localStorage.setItem("productSelected", JSON.stringify(data[2].MOUSE));
@@ -90,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         );
                     } else if (e.target.id == 3) {
                         lowerPrice.checked = false;
+                        higherPrice.checked = false;
                         targetCategory(data[3].NOTEBOOK);
                         localStorage.removeItem("productSelected");
                         localStorage.setItem("productSelected", JSON.stringify(data[3].NOTEBOOK));
