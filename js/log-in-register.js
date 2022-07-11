@@ -130,17 +130,19 @@ function captureData(register, form, deleteDiv) {
     register.addEventListener("click", (event) => {
         event.preventDefault();
 
-        let filterRepeatUser = repeatUsers.filter(item => item.user == form.querySelector("#name-user").value)
 
-        if (filterRepeatUser.length != 0) {
+        if (repeatUsers != null) {
+            let filterRepeatUser = repeatUsers.filter(item => item.user == form.querySelector("#name-user").value)
+
             if (filterRepeatUser[0].user == form.querySelector("#name-user").value) {
                 alert("el usuario ya existe, por favor ingrese otro nombre")
+
             }
         } else if (form.querySelector("#password-user").value != form.querySelector("#repeat-password").value) {
             alert("password don't match");
 
 
-        } else if(form.querySelector("#name-user").value == "") {
+        } else if (form.querySelector("#name-user").value == "") {
             alert("El campo de usuario es obligatorio!")
 
         } else {
