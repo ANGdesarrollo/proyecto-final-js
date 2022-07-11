@@ -35,7 +35,7 @@
         "category": "Keyboard",
         "brand": "Razer",
         "name": "Pro Type Ultra US",
-        "price": 200,
+        "price": 320,
         "imgPath": "../images/products/Keyboard_3.webp",
         "qty": 1
       }
@@ -50,7 +50,7 @@
         "category": "Headset",
         "brand": "Razer",
         "name": "BlackShark V2 Pro Black",
-        "price": 200,
+        "price": 400,
         "imgPath": "../images/products/Headset_0.webp",
         "qty": 1
       },
@@ -92,7 +92,7 @@
         "category": "Mouse",
         "brand": "Razer",
         "name": "Viper Ultimate Quartz",
-        "price": 200,
+        "price": 400,
         "imgPath": "../images/products/Mouse_0.webp"
       },
       {
@@ -157,7 +157,7 @@
         "category": "Notebook",
         "brand": "Razer",
         "name": "Book - UHD Touch 60Hz - Intel® Iris® Xe",
-        "price": 1200,
+        "price": 2200,
         "imgPath": "../images/products/Notebook_3.webp",
         "qty": 1
       }

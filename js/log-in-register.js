@@ -4,6 +4,10 @@ const localStorageUser = [];
 const userLoggedIn = [];
 
 iconUser.addEventListener("click", () => {
+    createDivLogIn()
+})
+
+function createDivLogIn() {
     let containerGeneral = document.createElement("div");
     let container = document.createElement("div");
     let upperContainer = document.createElement("div");
@@ -107,8 +111,7 @@ iconUser.addEventListener("click", () => {
         registerUser.remove();
         buttonRegister.remove();
 
-        captureData(buttonConfirm, containerForm);
-
+        captureData(buttonConfirm, containerForm, containerGeneral);
 
 
     })
@@ -116,36 +119,36 @@ iconUser.addEventListener("click", () => {
     removeScreen(containerGeneral, closeImg);
 
 
+}
 
-})
-
-function captureData(register, form) {
+function captureData(register, form, deleteDiv) {
     register.addEventListener("click", (event) => {
         event.preventDefault();
-
-        if(form.querySelector("#password-user").value != form.querySelector("#repeat-password").value) {
+        if (form.querySelector("#password-user").value != form.querySelector("#repeat-password").value) {
             alert("password don't match");
-        } else if(form.querySelector("#name-user").value == "") {
+        } else if (form.querySelector("#name-user").value == "") {
             alert("El campo de usuario es obligatorio!")
-        } else if(form.querySelector("#password-user").value == form.querySelector("#repeat-password").value) {
+        } else if (form.querySelector("#password-user").value == form.querySelector("#repeat-password").value) {
             let capturaData = {
                 user: form.querySelector("#name-user").value,
                 password: form.querySelector("#password-user").value
             }
             localStorageUser.push(capturaData);
             localStorage.setItem("user", JSON.stringify(localStorageUser));
+            deleteDiv.innerHTML = "";
+            deleteDiv.classList.remove("container-general-log-in");
+            alert("se ha registrado exitosamente , por favor loguee")
+            createDivLogIn()
         }
     })
 }
 
-
-
 function logInUser(button, form, animation) {
     let saveStorageUser = JSON.parse(localStorage.getItem("user"));
-    button.addEventListener("click",(e) => {
+    button.addEventListener("click", (e) => {
         e.preventDefault();
 
-        if(saveStorageUser == null) {
+        if (saveStorageUser == null) {
             alert("Usuario o contraseña incorrecto")
         } else {
             let checkUser = saveStorageUser.filter(item => item.user == form.querySelector("#name-user").value);
@@ -154,7 +157,7 @@ function logInUser(button, form, animation) {
             console.log(checkPassword)
             if (checkUser.length == 0 || checkPassword.length == 0) {
                 alert("usuario o contraseña incorrecto")
-            } else if(checkUser[0].user == form.querySelector("#name-user").value && checkPassword[0].password == form.querySelector("#password-user").value) {
+            } else if (checkUser[0].user == form.querySelector("#name-user").value && checkPassword[0].password == form.querySelector("#password-user").value) {
                 alert("esto es correcto")
                 let userLogged = {
                     user: checkUser[0].user,
@@ -165,18 +168,12 @@ function logInUser(button, form, animation) {
                 localStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
 
 
-                
             }
         }
 
     })
 
 }
-
-
-
-
-
 
 function removeScreen(containerGeneral, closeImg) {
     window.addEventListener("keydown", (element) => {
@@ -191,3 +188,5 @@ function removeScreen(containerGeneral, closeImg) {
 
 
 }
+
+
