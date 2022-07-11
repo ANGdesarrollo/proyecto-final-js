@@ -55,7 +55,6 @@ function createDivLogIn() {
     divPassword.append(labelPassword, inputPassword);
     divTitle.append(titleSpan1, titleSpan2);
 
-
     spanPoint1.setAttribute("id", "js-span-a");
     spanPoint2.setAttribute("id", "js-span-b");
     spanPoint3.setAttribute("id", "js-span-c");
@@ -118,18 +117,13 @@ function createDivLogIn() {
     })
 
     removeScreen(containerGeneral, closeImg);
-
-
 }
-
 
 function captureData(register, form, deleteDiv) {
     let repeatUsers = JSON.parse(localStorage.getItem("user"));
 
-
     register.addEventListener("click", (event) => {
         event.preventDefault();
-
 
         if (repeatUsers != null) {
             let filterRepeatUser = repeatUsers.filter(item => item.user == form.querySelector("#name-user").value)
@@ -147,11 +141,11 @@ function captureData(register, form, deleteDiv) {
 
         } else {
             if (form.querySelector("#password-user").value == form.querySelector("#repeat-password").value) {
-                let capturaData = {
+                let captureData = {
                     user: form.querySelector("#name-user").value,
                     password: form.querySelector("#password-user").value
                 }
-                localStorageUser.push(capturaData);
+                localStorageUser.push(captureData);
                 localStorage.setItem("user", JSON.stringify(localStorageUser));
                 deleteDiv.innerHTML = "";
                 deleteDiv.classList.remove("container-general-log-in");
@@ -159,11 +153,8 @@ function captureData(register, form, deleteDiv) {
                 createDivLogIn()
             }
         }
-
-
     })
 }
-
 
 function logInUser(button, form, deleteDiv) {
     let saveStorageUser = JSON.parse(localStorage.getItem("user"));
@@ -188,11 +179,8 @@ function logInUser(button, form, deleteDiv) {
                 localStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
                 deleteDiv.innerHTML = "";
                 deleteDiv.classList.remove("container-general-log-in");
-
-
             }
         }
-
     })
 
 }

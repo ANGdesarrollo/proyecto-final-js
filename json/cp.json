@@ -1,0 +1,22 @@
+[
+    {
+        "ciudad": "Bahia Blanca",
+        "CP" : "8000"
+    },
+    {
+        "ciudad": "Mendoza",
+        "CP" : "5500"
+    },
+    {
+        "ciudad": "Buenos Aires Capital",
+        "CP" : "1490"
+    },
+    {
+        "ciudad": "San Luis",
+        "CP" : "5342"
+    },
+    {
+        "ciudad": "Tucuman",
+        "CP" : "2323"
+    }
+]

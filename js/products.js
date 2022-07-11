@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     let shopCartSelected = [];
-    let productCategorySelected = [];
 
     const pedirDatos = async () => {
         const respuesta = await fetch("../json/products.json");
@@ -160,10 +159,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 imgShoppingCart.setAttribute("id", value.id);
                 nameProduct.textContent = value.name;
 
-
-                // ORDENAR DE MENOR A MAYOR LOS ITEMS EN CASO QUE EL USUARIO CLIKEE EL BOTON DE ORDER BY
-
-
                 // FUNCION CLICK PARA AGREGAR PRODUCTOS AL CARRITO CUANDO HACES CLICK A LA BOLSA
                 imgShoppingCart.addEventListener("click", (e) => {
                     let userLogIn = JSON.parse(localStorage.getItem("userLoggedIn"));
@@ -195,7 +190,6 @@ document.addEventListener("DOMContentLoaded", () => {
             containerProducts.append(cardFragment);
         }
 
-
         function selectProduct(id, category) {
             if (category == "img-shopping-cart Headset") {
                 getProductInfo(data[1].HEADSET[id]);
@@ -216,7 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 qty: 1,
                 imgPath: selectedProduct.imgPath,
             };
-
 
             // PUSHEO AL ARRAY VACIO Y FILTRADO SI YA ESTA EN EL CARRITO ASI NO SE AGREGA DOS VECES
 
@@ -265,6 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
             hiddenContinueDiv.classList.add("hidden-continue");
             hiddenTotalNumberDiv.classList.add("hidden-total-number");
             hiddenDeleteDiv.classList.add("hidden-delete");
+            hiddenContinueButton.classList.add("button-class-style")
             //AGREGAR PADRES
             titleHiddenContainer.append(hiddenTitleDiv);
             totalHiddenContainer.append(hiddenTotalDiv);
@@ -347,13 +341,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
             });
 
-            resumenBuy(hiddenContinueButton, container);
+            resumenBuy(hiddenContinueButton, container, hiddenDeleteDiv, hiddenContinueDiv, hiddenTotalNumberh2, hiddenTotalNumberh2a);
         };
 
-        function resumenBuy(hiddenContinueButton, container) {
-            hiddenContinueButton.addEventListener("click", () => {
-                container.innerHTML = "";
-            })
+        function resumenBuy(hiddenContinueButton, container, emptyCart, divTotal, total, price) {
+            const cpFunction = async () => {
+                const rta = await fetch("../json/cp.json");
+                let dataCP = await rta.json();
+                hiddenContinueButton.addEventListener("click", () => {
+                    container.innerHTML = "";
+                    emptyCart.remove();
+
+                    let goBack = document.createElement("button");
+                    let titleResumeBuy = document.createElement("div");
+                    let detailsDiv = document.createElement("div");
+
+                    let shippingDetailDiv = document.createElement("form");
+                    let shippingDetailTitle = document.createElement("div");
+                    let containerInput = document.createElement("div");
+                    let inputCP = document.createElement("input");
+                    let labelCP = document.createElement("label");
+                    let buttonCheck = document.createElement("button");
+                    let buttonCheckDiv = document.createElement("div");
+
+
+                    divTotal.append(goBack);
+                    container.append(titleResumeBuy, detailsDiv, shippingDetailDiv);
+                    shippingDetailDiv.append(shippingDetailTitle, containerInput);
+                    containerInput.append(inputCP, labelCP, buttonCheckDiv);
+                    buttonCheckDiv.append(buttonCheck)
+
+                    detailsDiv.classList.add("hidden__box-container-details");
+                    containerInput.classList.add("container-inputs");
+                    shippingDetailTitle.classList.add("title-ship")
+                    goBack.classList.add("button-class-style")
+                    buttonCheckDiv.classList.add("button-check-div");
+                    container.classList.add("remove-scroll")
+
+                    goBack.textContent = "Back";
+                    titleResumeBuy.textContent = "Resume";
+                    shippingDetailTitle.textContent = "Shipping methods";
+                    labelCP.setAttribute("id", "inputCP");
+                    inputCP.setAttribute("id", "inputCP");
+                    labelCP.textContent = "Enter your zip";
+                    buttonCheck.textContent = "Calculate";
+                    total.textContent = "Total : ";
+
+                    goBack.addEventListener("click", () => {
+                        loadDomProducts(shopCartSelected)
+                    })
+
+                    let dataLocal = JSON.parse(localStorage.getItem("cart"));
+
+                    dataLocal.forEach(item => {
+                        let boxProductDetail = document.createElement("div");
+                        let nameProduct = document.createElement("div");
+                        let qtyProduct = document.createElement("div");
+                        let TotalPerProduct = document.createElement("div");
+
+                        detailsDiv.append(boxProductDetail);
+                        boxProductDetail.append(nameProduct, qtyProduct, TotalPerProduct);
+
+                        boxProductDetail.classList.add("products-details-container");
+                        nameProduct.classList.add("name-product-detail");
+                        qtyProduct.classList.add("qty-product-detail");
+                        TotalPerProduct.classList.add("total-product-detail");
+
+                        nameProduct.textContent = item.name;
+                        qtyProduct.textContent = item.qty;
+                        TotalPerProduct.textContent = `$ ${item.qty * item.price}`;
+                    })
+
+                })
+
+            }
+            cpFunction()
 
         }
 
@@ -461,7 +523,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let filterPrice = document.getElementById("js-filter-price-input")
             let filterPriceHigh = document.getElementById("js-filter-price-input2");
             filterPrice.addEventListener("click", () => {
-                if(filterPriceHigh.checked) {
+                if (filterPriceHigh.checked) {
                     filterPriceHigh.checked = false;
                 }
                 if (filterPrice.checked) {
@@ -483,7 +545,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let filterPrice = document.getElementById("js-filter-price-input2");
             let filterPriceLower = document.getElementById("js-filter-price-input");
             filterPrice.addEventListener("click", () => {
-                if(filterPriceLower.checked) {
+                if (filterPriceLower.checked) {
                     filterPriceLower.checked = false;
                 }
                 if (filterPrice.checked) {

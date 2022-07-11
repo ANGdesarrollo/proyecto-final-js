@@ -989,6 +989,73 @@ html {
   position: relative;
   height: 70%;
 }
+.hidden-shopping-cart .hidden form {
+  display: flex;
+  flex-direction: column;
+}
+.hidden-shopping-cart .hidden form .title-ship {
+  grid-column: 1/6;
+}
+.hidden-shopping-cart .hidden form .container-inputs {
+  grid-column: 1/5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.hidden-shopping-cart .hidden form .container-inputs input {
+  grid-column: 1/3;
+}
+.hidden-shopping-cart .hidden form .container-inputs label {
+  grid-column: 1/3;
+}
+.hidden-shopping-cart .hidden form .container-inputs .button-check-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row: 1/3;
+  grid-column: 3/4;
+}
+.hidden-shopping-cart .hidden form .container-inputs .button-check-div button:hover {
+  background-color: steelblue;
+  transform: translateY(2px);
+}
+.hidden-shopping-cart .hidden form .container-inputs .button-check-div button {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #29d0fd;
+  color: #fff;
+  height: 40px;
+  width: 70%;
+}
+.hidden-shopping-cart .hidden__details-to-buy {
+  display: flex;
+  flex-direction: column;
+}
+.hidden-shopping-cart .hidden__box-container-details {
+  overflow-y: scroll;
+  height: 50%;
+  padding-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.hidden-shopping-cart .hidden__box-container-details .products-details-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.hidden-shopping-cart .hidden__box-container-details .products-details-container .name-product-detail {
+  width: 60%;
+}
+.hidden-shopping-cart .hidden__box-container-details .products-details-container .name-product-detail {
+  width: 60%;
+}
+.hidden-shopping-cart .hidden__box-container-details .products-details-container .qty-product-detail {
+  width: 20%;
+}
+.hidden-shopping-cart .hidden__box-container-details .products-details-container .total-product-detail {
+  width: 20%;
+}
 .hidden-shopping-cart .hidden__shop-product {
   font-size: 0.7rem;
   display: flex;
@@ -1030,6 +1097,9 @@ html {
   width: 1.5rem;
   height: 1.5rem;
 }
+.hidden-shopping-cart .remove-scroll {
+  overflow-y: inherit;
+}
 .hidden-shopping-cart #js-hidden-total {
   display: flex;
   justify-content: center;
@@ -1047,7 +1117,7 @@ html {
   display: flex;
   justify-content: center;
 }
-.hidden-shopping-cart #js-hidden-total .hidden-continue-active button {
+.hidden-shopping-cart #js-hidden-total .hidden-continue-active .button-class-style {
   border-radius: 0.5rem;
   background-color: #29d0fd;
   color: #fff;
