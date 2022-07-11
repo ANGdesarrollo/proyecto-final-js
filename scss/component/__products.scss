@@ -1,151 +1,6 @@
 @import '../base/_vars';
 @import '../base/_mixins';
 
-
-.active-hidden {
-  right: -100%;
-}
-
-.swal-height {
-  display: flex;
-  z-index: 6;
-}
-.block-shop-active {
-  z-index: 3;
-  position: absolute;
-  width: 100vw;
-  height: 100%;
-  background-color: $graySuperTrans;
-  top: 0;
-}
-
-.hidden-shopping-cart {
-  background-color: $grayTrans95;
-  z-index: 4;
-  top: 0;
-  position: absolute;
-  height: 98%;
-  width: 40%;
-  transition: all .5s ease;
-
-  .hidden-title {
-    height: 5%;
-    display: flex;
-    align-items: center;
-
-    img {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-  }
-  .hidden {
-    padding-left: 1rem;
-    overflow-y: scroll;
-    position: relative;
-    height: 70%;
-  
-  
-    &__shop-product {
-
-      font-size: .7rem;
-      @include flex(flex, center, flex-start, row);
-      flex-wrap: wrap;
-  
-  
-      .name-product {
-        width: 60%;
-      }
-  
-      .img-product {
-        width: 20%;
-  
-        img {
-          width: 90%;
-        }
-      }
-  
-      .price-product-cart {
-        width: 20%;
-      }
-  
-      .count-product {
-        border-radius: 5px;
-        background-color: $white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 60px;
-        height: 30px;
-  
-        input {
-          text-align: center;
-          width: 1.5rem;
-        }
-  
-        span {
-          color: $black;
-          width: .5rem;
-        }
-      }
-  
-      .delete-product {
-        img {
-          width: 1.5rem;
-          height: 1.5rem;
-        }
-      }
-    }
-  }
-
-  #js-hidden-total {
-    display: flex;
-    justify-content: center;
-    background-color: $black;
-    height: 25%;
-
-    .hidden-total {
-      width: 50%;
-      .hidden-total-number {
-        display: flex;
-        justify-content: space-between;
-        
-      }
-    }
-
-    .hidden-continue-active {
-      display: flex;
-      justify-content: center;
-      button {
-        border-radius: .5rem;
-        background-color: $lightBlue;
-        color: $white;
-        height: 40px;
-        width: 70%;
-      }
-
-      button:hover {
-        background-color: steelblue;
-        transform: translateY(2px)
-      }
-
-    }
-    .hidden-continue {
-      display: none;
-
-    }
-
-    .hidden-delete {
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-    }
-  }
-}
-
-.desactive-hidden {
-  right: 0;
-}
-
 .products-container {
   min-height: fit-content;
   position: relative;
@@ -194,7 +49,8 @@
   }
 
   &__buy-products {
-    
+    overflow-y: scroll;
+    max-height: 80vh;
     padding: 3%;
     display: flex;
     justify-content: center;
@@ -401,8 +257,7 @@
     }
   
     &__buy-products {
-      max-height: fit-content;
-      overflow-x: scroll;
+      max-height: 50vh;
       padding: 0;
       margin-bottom: 1rem;
       grid-column: 1 / 6;

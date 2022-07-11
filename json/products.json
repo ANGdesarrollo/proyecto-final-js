@@ -160,6 +160,42 @@
         "price": 2200,
         "imgPath": "../images/products/Notebook_3.webp",
         "qty": 1
+      },
+      {
+        "id": 0,
+        "category": "Notebook",
+        "brand": "Razer",
+        "name": "Blade 14-QHD 165Hz GeForce RTX 3080Ti",
+        "price": 1200,
+        "imgPath": "../images/products/Notebook_0.webp",
+        "qty": 1
+      },
+      {
+        "id": 1,
+        "category": "Notebook",
+        "brand": "Razer",
+        "name": "Razer Blade 15 - UHD 144Hz GeForce RTX 3080Ti",
+        "price": 1250,
+        "imgPath": "../images/products/Notebook_1.webp",
+        "qty": 1
+      },
+      {
+        "id": 2,
+        "category": "Notebook",
+        "brand": "Razer",
+        "name": "Razer Blade 17 . QHD 240Hz GeForce RTX 3070 Ti",
+        "price": 1170,
+        "imgPath": "../images/products/Notebook_2.webp",
+        "qty": 1
+      },
+      {
+        "id": 3,
+        "category": "Notebook",
+        "brand": "Razer",
+        "name": "Book - UHD Touch 60Hz - Intel® Iris® Xe",
+        "price": 2200,
+        "imgPath": "../images/products/Notebook_3.webp",
+        "qty": 1
       }
     ]
   }

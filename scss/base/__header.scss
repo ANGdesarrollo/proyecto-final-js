@@ -170,7 +170,7 @@
       /* LOGO */
 
       .logo {
-        z-index: 100;
+        z-index: 4;
         background-color: $black; /* T */
         display: flex;
         align-items: center;
@@ -223,7 +223,7 @@
 
       .items {
         background-color: $black;
-        z-index: 100;
+        z-index: 4;
         grid-row: 1 / 2;
         display: flex;
         grid-column: 7 / 8;
@@ -253,7 +253,7 @@
 
       .search {
         background-color: $black; /* T */
-        z-index: 100; /* T */
+        z-index: 4; /* T */
         padding-bottom: 0;
         display: flex;
         align-items: center; /* T */
@@ -295,7 +295,7 @@
 
     &__bars-menu {
       background-color: $black;
-      z-index: 100;
+      z-index: 4;
       grid-row: 1 / 2;
       grid-column: 11 / 12;
       display: flex;

@@ -74,6 +74,7 @@ function createDivLogIn() {
     inputPassword.setAttribute('type', "password");
     buttonLogIn.textContent = "Log In";
     buttonRegister.textContent = "Register";
+    buttonRegister.setAttribute("id", "js-submit-button-register");
 
     logInUser(buttonLogIn, containerForm, containerGeneral);
 
@@ -121,27 +122,46 @@ function createDivLogIn() {
 
 }
 
+
 function captureData(register, form, deleteDiv) {
+    let repeatUsers = JSON.parse(localStorage.getItem("user"));
+
+
     register.addEventListener("click", (event) => {
         event.preventDefault();
-        if (form.querySelector("#password-user").value != form.querySelector("#repeat-password").value) {
-            alert("password don't match");
-        } else if (form.querySelector("#name-user").value == "") {
-            alert("El campo de usuario es obligatorio!")
-        } else if (form.querySelector("#password-user").value == form.querySelector("#repeat-password").value) {
-            let capturaData = {
-                user: form.querySelector("#name-user").value,
-                password: form.querySelector("#password-user").value
+
+        let filterRepeatUser = repeatUsers.filter(item => item.user == form.querySelector("#name-user").value)
+
+        if (filterRepeatUser.length != 0) {
+            if (filterRepeatUser[0].user == form.querySelector("#name-user").value) {
+                alert("el usuario ya existe, por favor ingrese otro nombre")
             }
-            localStorageUser.push(capturaData);
-            localStorage.setItem("user", JSON.stringify(localStorageUser));
-            deleteDiv.innerHTML = "";
-            deleteDiv.classList.remove("container-general-log-in");
-            alert("se ha registrado exitosamente , por favor loguee")
-            createDivLogIn()
+        } else if (form.querySelector("#password-user").value != form.querySelector("#repeat-password").value) {
+            alert("password don't match");
+
+
+        } else if(form.querySelector("#name-user").value == "") {
+            alert("El campo de usuario es obligatorio!")
+
+        } else {
+            if (form.querySelector("#password-user").value == form.querySelector("#repeat-password").value) {
+                let capturaData = {
+                    user: form.querySelector("#name-user").value,
+                    password: form.querySelector("#password-user").value
+                }
+                localStorageUser.push(capturaData);
+                localStorage.setItem("user", JSON.stringify(localStorageUser));
+                deleteDiv.innerHTML = "";
+                deleteDiv.classList.remove("container-general-log-in");
+                alert("se ha registrado exitosamente , por favor loguee")
+                createDivLogIn()
+            }
         }
+
+
     })
 }
+
 
 function logInUser(button, form, deleteDiv) {
     let saveStorageUser = JSON.parse(localStorage.getItem("user"));
@@ -153,8 +173,6 @@ function logInUser(button, form, deleteDiv) {
         } else {
             let checkUser = saveStorageUser.filter(item => item.user == form.querySelector("#name-user").value);
             let checkPassword = saveStorageUser.filter(item => item.password == form.querySelector("#password-user").value);
-            console.log(checkUser)
-            console.log(checkPassword)
             if (checkUser.length == 0 || checkPassword.length == 0) {
                 alert("usuario o contraseña incorrecto")
             } else if (checkUser[0].user == form.querySelector("#name-user").value && checkPassword[0].password == form.querySelector("#password-user").value) {
