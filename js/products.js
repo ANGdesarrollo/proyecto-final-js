@@ -458,7 +458,11 @@ document.addEventListener("DOMContentLoaded", () => {
         //ORDENAR PRECIOS DE MENOR A MAYOR
         function orderLowerPrice() {
             let filterPrice = document.getElementById("js-filter-price-input")
+            let filterPriceHigh = document.getElementById("js-filter-price-input2");
             filterPrice.addEventListener("click", () => {
+                if(filterPriceHigh.checked) {
+                    filterPriceHigh.checked = false;
+                }
                 if (filterPrice.checked) {
                     targetCategory(JSON.parse(localStorage.getItem("productSelected")).sort((a, b) => {
                         if (a.price == b.price) {
@@ -476,7 +480,11 @@ document.addEventListener("DOMContentLoaded", () => {
         //ORDENAR PRECIOS DE MAYOR A MENOR
         function orderHigherPrice() {
             let filterPrice = document.getElementById("js-filter-price-input2");
+            let filterPriceLower = document.getElementById("js-filter-price-input");
             filterPrice.addEventListener("click", () => {
+                if(filterPriceLower.checked) {
+                    filterPriceLower.checked = false;
+                }
                 if (filterPrice.checked) {
                     targetCategory(JSON.parse(localStorage.getItem("productSelected")).sort((a, b) => {
                         if (a.price == b.price) {
