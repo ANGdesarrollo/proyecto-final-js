@@ -441,6 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         cancelButtonText: "No, cancel!",
                         reverseButtons: true,
                         background: '#3ec4ea',
+                        customClass: "swal-height",
                     })
                     .then((result) => {
                         if (result.isConfirmed) {

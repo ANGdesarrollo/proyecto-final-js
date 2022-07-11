@@ -713,10 +713,11 @@ html {
 
 .swal-height {
   display: flex;
+  z-index: 6;
 }
 
 .block-shop-active {
-  z-index: 2000;
+  z-index: 3;
   position: absolute;
   width: 100vw;
   height: 100%;
@@ -726,7 +727,7 @@ html {
 
 .hidden-shopping-cart {
   background-color: rgba(66, 73, 73, 0.95);
-  z-index: 2001;
+  z-index: 4;
   top: 0;
   position: absolute;
   height: 98%;
