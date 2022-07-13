@@ -16,7 +16,7 @@
     grid-template-columns: repeat(7, 1fr);
     display: grid;
     width: 47%;
-    height: 90%;
+    height: fit-content;
     background-color: $grayTrans;
 
     &__icons {
@@ -84,7 +84,7 @@
       }
 
       .title-form {
-        padding: 25%;
+        padding: 10%;
         font-weight: bold;
         font-size: 2rem;
         grid-column: 1 / 4;
@@ -170,6 +170,103 @@
               color: $black-hsl;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .main {
+    .form {
+      width: 80%;
+      &__form-part {
+        .points-form {
+           #span-point-a {
+            width: 15px;
+            height: 15px;
+          }
+          #span-point-b {
+            width: 15px;
+            height: 15px;
+          }
+          #span-point-c {
+            width: 15px;
+            height: 15px;
+          }
+        }
+        
+        .title-form {
+          font-size: 1.5rem;
+        }
+  
+        .inputs-form {
+          .container-form-group {
+             
+            .buttons {
+              width: 80%;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-end;
+             
+              .app-form-button {
+              font-size: .6rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .main {
+    
+    
+    .form {
+      width: 100%;
+      &__icons {
+        padding-bottom: 1rem;
+        grid-column: 1 / 8;
+        ul {
+          flex-direction: row;
+          li {
+            a {
+              img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+          }
+        }
+      }
+  
+      &__form-part {
+        grid-column: 1 / 8;
+        
+        .title-form {
+          padding: inherit;
+          font-size: 1.5rem;
+          grid-column: 1 / 8;
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          span {
+            padding-right: .3rem;
+          }
+          
+          #subline-form::before {
+            padding: 3px;
+            bottom: -1rem;
+            width: 100%;
+          }
+        }
+  
+        .inputs-form {
+          grid-column: 1 / 8;
+          display: flex;
         }
       }
     }

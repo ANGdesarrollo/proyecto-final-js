@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             filterPriceTwo.append(filterPriceInput2, filterPriceLabel2);
             filterPriceInput.setAttribute("type", "checkbox");
             filterPriceInput2.setAttribute("type", "checkbox");
-            filterPriceTitle.textContent = "Order by:"
+            filterPriceTitle.textContent = "ORDER BY:"
             filterPriceLabel.textContent = "Lower price";
             filterPriceLabel2.textContent = "Higher price";
             filterPriceInput.setAttribute("id", "js-filter-price-input");
@@ -164,7 +164,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     let userLogIn = JSON.parse(localStorage.getItem("userLoggedIn"));
 
                     if (userLogIn == null) {
-                        alert("debe registrarse para poder comprar")
+                        Swal.fire({
+                            icon: "error",
+                            position: "bottom-start",
+                            title: "You must log in to buy !",
+                            timer: 1000,
+                            background: "hsl(193, 80%, 58%)",
+                            width: "17rem",
+                            customClass: "swal-height",
+                            toast: true,
+                            showConfirmButton: false,
+                            iconColor: '#fff',
+                            color: '#fff',
+
+                        });
                     } else {
                         selectProduct(e.target.id, e.target.className);
                         addNumberShop(shopCartSelected);
@@ -242,15 +255,17 @@ document.addEventListener("DOMContentLoaded", () => {
             totalHiddenContainer.innerHTML = "";
             // CREACION DE ESPACIOS
             let hiddenTitleDiv = document.createElement("div");
-            let hiddenTitleImg = document.createElement("img");
-            let hiddenTitleh2 = document.createElement("h2");
-            let hiddenTotalDiv = document.createElement("div");
-            let hiddenTotalNumberDiv = document.createElement("div");
-            let hiddenTotalNumberh2 = document.createElement("h2");
-            let hiddenTotalNumberh2a = document.createElement("h2");
-            let hiddenContinueDiv = document.createElement("div");
-            let hiddenDeleteDiv = document.createElement("div");
-            let hiddenContinueButton = document.createElement("button");
+             hiddenTitleImg = document.createElement("img"),
+             hiddenTitleh2 = document.createElement("h2"),
+             hiddenTotalDiv = document.createElement("div"),
+             hiddenTotalNumberDiv = document.createElement("div"),
+             hiddenTotalNumberh2 = document.createElement("h2"),
+             hiddenTotalNumberh2a = document.createElement("h2"),
+             hiddenContinueDiv = document.createElement("div"),
+             hiddenDeleteDiv = document.createElement("div"),
+             hiddenContinueButton = document.createElement("button"),
+             emptyProductImg = document.createElement("img"),
+             emptyProducth2 = document.createElement("h2");
             //AGREGAR CLASES
             hiddenTitleDiv.classList.add("hidden-title");
             hiddenTitleImg.classList.add("arrow-close");
@@ -264,11 +279,12 @@ document.addEventListener("DOMContentLoaded", () => {
             totalHiddenContainer.append(hiddenTotalDiv);
             hiddenTitleDiv.append(hiddenTitleImg, hiddenTitleh2);
             hiddenTotalDiv.append(hiddenTotalNumberDiv, hiddenContinueDiv, hiddenDeleteDiv);
+            hiddenDeleteDiv.append(emptyProductImg, emptyProducth2);
             hiddenTotalNumberDiv.append(hiddenTotalNumberh2, hiddenTotalNumberh2a);
             hiddenContinueDiv.append(hiddenContinueButton)
             //AGREGAR VALORES
             hiddenTitleImg.setAttribute("src", "../images/home-main-images/go-right.png");
-            hiddenTitleh2.textContent = "Shopping Cart";
+            hiddenTitleh2.textContent = "SHOPPING CART";
             //LLAMADO A FUNCIONES
             closeCart(hiddenTitleImg, hiddenContainer);
             removeAllItemsCart(hiddenDeleteDiv, container, hiddenTotalDiv);
@@ -282,46 +298,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 // CALCULADOR DEL TOTAL A COMPRAR
                 totalToPay += item.qty * item.price;
                 // CREADOR DE ESPACIOS
-                let containerAddedProduct = document.createElement("div");
-                let imgDivProduct = document.createElement("div");
-                let imgProduct = document.createElement("img");
-                let nameDivProduct = document.createElement("div");
-                let priceDivProduct = document.createElement("div");
-                let priceDivProductPerUnit = document.createElement("div");
-                let countDiv = document.createElement("div");
-                let input = document.createElement("input");
-                let spanLeft = document.createElement("span");
-                let spanRight = document.createElement("span");
-                let deleteProductDiv = document.createElement("div");
-                let deleteProductImg = document.createElement("img");
+                let containerAddedProduct = document.createElement("div"),
+                 imgDivProduct = document.createElement("div"),
+                 imgProduct = document.createElement("img"),
+                 nameDivProduct = document.createElement("div"),
+                 priceDivProduct = document.createElement("div"),
+                 priceTotal = document.createElement("div");
+                 priceDivProductPerUnit = document.createElement("div"),
+                 countDiv = document.createElement("div"),
+                 input = document.createElement("input"),
+                 spanLeft = document.createElement("span"),
+                 spanRight = document.createElement("span"),
+                 deleteProductDiv = document.createElement("div"),
+                 deleteProductImg = document.createElement("img"),
+                 
+
                 // AGREGAR CLASES
                 containerAddedProduct.classList.add("hidden__shop-product");
                 nameDivProduct.classList.add("name-product");
                 imgDivProduct.classList.add("img-product");
                 priceDivProduct.classList.add("price-product-cart");
-                priceDivProductPerUnit.classList.add("price-product-per-unit-cart");
                 countDiv.classList.add("count-product");
                 deleteProductDiv.classList.add("delete-product");
                 spanLeft.classList.add("span-left");
                 spanRight.classList.add("span-right");
-                hiddenContinueDiv.classList.add("hidden-continue-active")
-                hiddenContinueDiv.classList.remove("hidden-continue")
+                hiddenContinueDiv.classList.add("hidden-continue-active");
+                hiddenContinueDiv.classList.remove("hidden-continue");
                 // AGREGAR PADRES
                 container.append(containerAddedProduct);
                 containerAddedProduct.append(imgDivProduct);
                 imgDivProduct.append(imgProduct);
-                containerAddedProduct.append(nameDivProduct);
-                containerAddedProduct.append(priceDivProductPerUnit);
-                containerAddedProduct.append(priceDivProduct);
-                containerAddedProduct.append(countDiv);
+                containerAddedProduct.append(nameDivProduct, countDiv, priceDivProduct, deleteProductDiv);
+                priceDivProduct.append(priceTotal, priceDivProductPerUnit)
                 countDiv.append(spanLeft, input, spanRight);
-                containerAddedProduct.append(deleteProductDiv);
                 deleteProductDiv.append(deleteProductImg);
                 // AGREGAR VALORES
                 imgProduct.setAttribute("src", item.imgPath);
                 nameDivProduct.textContent = item.name;
                 priceDivProductPerUnit.textContent = `${item.price} USD`
-                priceDivProduct.textContent = `${item.price * item.qty} USD`;
+                priceTotal.textContent = `${item.price * item.qty} USD`;
                 spanLeft.textContent = "-";
                 spanRight.textContent = "+";
                 input.setAttribute("value", item.qty);
@@ -329,7 +344,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
                 hiddenTotalNumberh2.textContent = "Subtotal :"
                 hiddenTotalNumberh2a.textContent = `${totalToPay} USD`;
-                hiddenDeleteDiv.textContent = "Empty Cart";
+                emptyProductImg.setAttribute('src', '../images/shopping-cart/empty.png')
+                emptyProducth2.textContent = "Empty Cart";
                 spanLeft.setAttribute("id", `${contador}`);
                 spanRight.setAttribute("id", `${contador}`);
                 deleteProductImg.setAttribute("id", `${contador}`);
@@ -345,78 +361,101 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         function resumenBuy(hiddenContinueButton, container, emptyCart, divTotal, total, price) {
-            const cpFunction = async () => {
-                const rta = await fetch("../json/cp.json");
-                let dataCP = await rta.json();
-                hiddenContinueButton.addEventListener("click", () => {
-                    container.innerHTML = "";
-                    emptyCart.remove();
 
-                    let goBack = document.createElement("button");
-                    let titleResumeBuy = document.createElement("div");
-                    let detailsDiv = document.createElement("div");
-
-                    let shippingDetailDiv = document.createElement("form");
-                    let shippingDetailTitle = document.createElement("div");
-                    let containerInput = document.createElement("div");
-                    let inputCP = document.createElement("input");
-                    let labelCP = document.createElement("label");
-                    let buttonCheck = document.createElement("button");
-                    let buttonCheckDiv = document.createElement("div");
+            hiddenContinueButton.addEventListener("click", () => {
+                container.innerHTML = "";
+                emptyCart.remove();
 
 
-                    divTotal.append(goBack);
-                    container.append(titleResumeBuy, detailsDiv, shippingDetailDiv);
-                    shippingDetailDiv.append(shippingDetailTitle, containerInput);
-                    containerInput.append(inputCP, labelCP, buttonCheckDiv);
-                    buttonCheckDiv.append(buttonCheck)
 
-                    detailsDiv.classList.add("hidden__box-container-details");
-                    containerInput.classList.add("container-inputs");
-                    shippingDetailTitle.classList.add("title-ship")
-                    goBack.classList.add("button-class-style")
-                    buttonCheckDiv.classList.add("button-check-div");
-                    container.classList.add("remove-scroll")
+                let goBack = document.createElement("button");
+                let titleResumeBuy = document.createElement("div");
+                let detailsDiv = document.createElement("div");
+                let shippingDetailDiv = document.createElement("form");
+                let shippingDetailTitle = document.createElement("div");
+                let containerInput = document.createElement("div");
+                let inputCP = document.createElement("input");
+                let labelCP = document.createElement("label");
+                let buttonCheck = document.createElement("button");
+                let buttonCheckDiv = document.createElement("div");
+                let freeDetail = document.createElement("div");
+                let divFreeOne = document.createElement("div");
+                let divFreeTwo = document.createElement("div");
+                let divFreeThree= document.createElement("div");
 
-                    goBack.textContent = "Back";
-                    titleResumeBuy.textContent = "Resume";
-                    shippingDetailTitle.textContent = "Shipping methods";
-                    labelCP.setAttribute("id", "inputCP");
-                    inputCP.setAttribute("id", "inputCP");
-                    labelCP.textContent = "Enter your zip";
-                    buttonCheck.textContent = "Calculate";
-                    total.textContent = "Total : ";
+                divTotal.children[1] && divTotal.removeChild(divTotal.lastChild);
 
-                    goBack.addEventListener("click", () => {
-                        loadDomProducts(shopCartSelected)
-                    })
+                divTotal.append(goBack);
+                container.append(titleResumeBuy, detailsDiv, shippingDetailDiv, freeDetail);
+                freeDetail.append(divFreeOne, divFreeTwo, divFreeThree);
+                shippingDetailDiv.append(shippingDetailTitle, containerInput);
+                containerInput.append(inputCP, labelCP, buttonCheckDiv);
+                buttonCheckDiv.append(buttonCheck)
 
-                    let dataLocal = JSON.parse(localStorage.getItem("cart"));
+                detailsDiv.classList.add("hidden__box-container-details");
+                containerInput.classList.add("container-inputs");
+                shippingDetailTitle.classList.add("title-ship");
+                goBack.classList.add("button-class-style")
+                buttonCheckDiv.classList.add("button-check-div");
+                container.classList.add("remove-scroll");
+                freeDetail.classList.add("free-retire");
+                divFreeOne.classList.add("free-retire__title");
+                divFreeTwo.classList.add("free-retire__location");
+                divFreeThree.classList.add("free-retire__free");
 
-                    dataLocal.forEach(item => {
-                        let boxProductDetail = document.createElement("div");
-                        let nameProduct = document.createElement("div");
-                        let qtyProduct = document.createElement("div");
-                        let TotalPerProduct = document.createElement("div");
+                goBack.textContent = "Back";
+                titleResumeBuy.textContent = "Resume";
+                shippingDetailTitle.textContent = "Shipping methods";
+                labelCP.setAttribute("id", "inputCP");
+                inputCP.setAttribute("id", "inputCP");
+                labelCP.textContent = "Enter your zip";
+                buttonCheck.textContent = "Calculate";
+                total.textContent = "Total : ";
+                divFreeOne.textContent = "Our place";
+                divFreeTwo.textContent = "Game On Calle Culo Duro 5332";
+                divFreeThree.textContent = "FREE";
 
-                        detailsDiv.append(boxProductDetail);
-                        boxProductDetail.append(nameProduct, qtyProduct, TotalPerProduct);
-
-                        boxProductDetail.classList.add("products-details-container");
-                        nameProduct.classList.add("name-product-detail");
-                        qtyProduct.classList.add("qty-product-detail");
-                        TotalPerProduct.classList.add("total-product-detail");
-
-                        nameProduct.textContent = item.name;
-                        qtyProduct.textContent = item.qty;
-                        TotalPerProduct.textContent = `$ ${item.qty * item.price}`;
-                    })
+                goBack.addEventListener("click", () => {
+                    container.classList.remove("remove-scroll");
+                    loadDomProducts(shopCartSelected)
 
                 })
 
-            }
-            cpFunction()
+                //CALCULAR EL TOTAL CON ENVIO
 
+                let dataLocal = JSON.parse(localStorage.getItem("cart"));
+                let totalToPay = 0;
+                dataLocal.forEach(item => {
+                    totalToPay += item.price * item.qty
+                    console.log(totalToPay)
+                    let boxProductDetail = document.createElement("div");
+                    let nameProduct = document.createElement("div");
+                    let qtyProduct = document.createElement("div");
+                    let TotalPerProduct = document.createElement("div");
+
+                    detailsDiv.append(boxProductDetail);
+                    boxProductDetail.append(nameProduct, qtyProduct, TotalPerProduct);
+
+                    boxProductDetail.classList.add("products-details-container");
+                    nameProduct.classList.add("name-product-detail");
+                    qtyProduct.classList.add("qty-product-detail");
+                    TotalPerProduct.classList.add("total-product-detail");
+
+                    nameProduct.textContent = item.name;
+                    qtyProduct.textContent = item.qty;
+                    TotalPerProduct.textContent = `$ ${item.qty * item.price}`;
+                })
+
+                buttonCheck.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    let costShipment = 100
+
+                    if(inputCP.value != "") {
+                        price.textContent = `$ ${totalToPay + costShipment}`
+
+                    }
+                })
+            })
         }
 
         // FUNCION QUE AUMENTA UN CONTADOR DE NUMEROS
@@ -424,9 +463,13 @@ document.addEventListener("DOMContentLoaded", () => {
             let container = document.getElementById("js-shopping-cart");
             let circleNumberP = document.createElement("p");
 
+            (container.children[1]) && container.removeChild(container.lastChild);
+
             container.append(circleNumberP);
-            circleNumberP.textContent = "";
+
             circleNumberP.textContent = shopCartSelected.length;
+
+            shopCartSelected.length === 0 && circleNumberP.remove()
         }
 
         // CAMBIOS DINAMICOS EN EL CARRITO
@@ -612,6 +655,7 @@ document.addEventListener("DOMContentLoaded", () => {
         openCart();
         orderLowerPrice()
         orderHigherPrice()
+        addNumberShop(shopCartSelected)
     }
 
     pedirDatos()

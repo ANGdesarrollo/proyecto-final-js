@@ -75,7 +75,7 @@ function createDivLogIn() {
     buttonRegister.textContent = "Register";
     buttonRegister.setAttribute("id", "js-submit-button-register");
 
-    logInUser(buttonLogIn, containerForm, containerGeneral);
+    logInUser(buttonLogIn, containerForm, containerGeneral, container);
 
     buttonRegister.addEventListener("click", () => {
         titleSpan1.textContent = "SIGN";
@@ -116,28 +116,73 @@ function createDivLogIn() {
 
     })
 
-    removeScreen(containerGeneral, closeImg);
+    removeScreen(containerGeneral, closeImg, container);
 }
 
 function captureData(register, form, deleteDiv) {
     let repeatUsers = JSON.parse(localStorage.getItem("user"));
 
+
     register.addEventListener("click", (event) => {
         event.preventDefault();
 
+        // if (repeatUsers != null) {
+        //     repeatUsers = repeatUsers.filter(item => item.user == form.querySelector("#name-user").value)
+        // }
+
+
         if (repeatUsers != null) {
-            let filterRepeatUser = repeatUsers.filter(item => item.user == form.querySelector("#name-user").value)
+            var repeatUsersFind = repeatUsers.find((item) => item.user == form.querySelector("#name-user").value);
+        }
 
-            if (filterRepeatUser[0].user == form.querySelector("#name-user").value) {
-                alert("el usuario ya existe, por favor ingrese otro nombre")
 
-            }
+        // console.log(repeatUsers.find((el) => el.user == "Purran"))
+        if (repeatUsersFind != undefined) {
+            Swal.fire({
+                background: "hsl(193, 80%, 58%)",
+                width: "17rem",
+                customClass: "swal-height",
+                toast: true,
+                showConfirmButton: false,
+                iconColor: '#fff',
+                color: '#fff',
+                position: 'bottom-left',
+                icon: 'error',
+                title: 'This user already exists !',
+                timer: 2500
+            })
+
+
         } else if (form.querySelector("#password-user").value != form.querySelector("#repeat-password").value) {
-            alert("password don't match");
+            Swal.fire({
+                background: "hsl(193, 80%, 58%)",
+                width: "17rem",
+                customClass: "swal-height",
+                toast: true,
+                showConfirmButton: false,
+                iconColor: '#fff',
+                color: '#fff',
+                position: 'bottom-left',
+                icon: 'error',
+                title: 'Password dont match !',
+                timer: 2500
+            })
 
 
-        } else if (form.querySelector("#name-user").value == "") {
-            alert("El campo de usuario es obligatorio!")
+        } else if (form.querySelector("#name-user").value == "" || form.querySelector("#password-user").value == "" || form.querySelector("#repeat-password").value == "") {
+            Swal.fire({
+                background: "hsl(193, 80%, 58%)",
+                width: "17rem",
+                customClass: "swal-height",
+                toast: true,
+                showConfirmButton: false,
+                iconColor: '#fff',
+                color: '#fff',
+                position: 'bottom-left',
+                icon: 'error',
+                title: 'Complete all the fields !',
+                timer: 2500
+            })
 
         } else {
             if (form.querySelector("#password-user").value == form.querySelector("#repeat-password").value) {
@@ -149,27 +194,77 @@ function captureData(register, form, deleteDiv) {
                 localStorage.setItem("user", JSON.stringify(localStorageUser));
                 deleteDiv.innerHTML = "";
                 deleteDiv.classList.remove("container-general-log-in");
-                alert("se ha registrado exitosamente , por favor loguee")
+                Swal.fire({
+                    background: "hsl(193, 80%, 58%)",
+                    width: "17rem",
+                    customClass: "swal-height",
+                    toast: true,
+                    showConfirmButton: false,
+                    iconColor: '#fff',
+                    color: '#fff',
+                    position: 'bottom-left',
+                    icon: 'success',
+                    title: 'You successfully register, please log in',
+                    timer: 2500
+                })
+
                 createDivLogIn()
             }
         }
     })
 }
 
-function logInUser(button, form, deleteDiv) {
+function logInUser(button, form, deleteDiv, animation) {
     let saveStorageUser = JSON.parse(localStorage.getItem("user"));
     button.addEventListener("click", (e) => {
+
         e.preventDefault();
 
         if (saveStorageUser == null) {
-            alert("Usuario o contraseña incorrecto")
+            Swal.fire({
+                background: "hsl(193, 80%, 58%)",
+                width: "17rem",
+                customClass: "swal-height",
+                toast: true,
+                showConfirmButton: false,
+                iconColor: '#fff',
+                color: '#fff',
+                position: 'bottom-left',
+                icon: 'error',
+                title: 'You are not registered!',
+                timer: 2500
+            })
         } else {
             let checkUser = saveStorageUser.filter(item => item.user == form.querySelector("#name-user").value);
             let checkPassword = saveStorageUser.filter(item => item.password == form.querySelector("#password-user").value);
             if (checkUser.length == 0 || checkPassword.length == 0) {
-                alert("usuario o contraseña incorrecto")
+                Swal.fire({
+                    background: "hsl(193, 80%, 58%)",
+                    width: "17rem",
+                    customClass: "swal-height",
+                    toast: true,
+                    showConfirmButton: false,
+                    iconColor: '#fff',
+                    color: '#fff',
+                    position: 'bottom-left',
+                    icon: 'error',
+                    title: 'Wrong Username or Password',
+                    timer: 2500
+                })
             } else if (checkUser[0].user == form.querySelector("#name-user").value && checkPassword[0].password == form.querySelector("#password-user").value) {
-                alert("esto es correcto")
+                Swal.fire({
+                    background: "hsl(193, 80%, 58%)",
+                    width: "17rem",
+                    customClass: "swal-height",
+                    toast: true,
+                    showConfirmButton: false,
+                    iconColor: '#fff',
+                    color: '#fff',
+                    position: 'bottom-left',
+                    icon: 'success',
+                    title: 'You succesfully logged in!',
+                    timer: 2500
+                })
                 let userLogged = {
                     user: checkUser[0].user,
                     password: checkPassword[0].password
@@ -177,15 +272,18 @@ function logInUser(button, form, deleteDiv) {
 
                 userLoggedIn.push(userLogged);
                 localStorage.setItem("userLoggedIn", JSON.stringify(userLoggedIn));
-                deleteDiv.innerHTML = "";
-                deleteDiv.classList.remove("container-general-log-in");
+                animation.classList.add("animate__animated");
+                animation.classList.add("animate__fadeOutRight");
+                deleteDiv.classList.add("remove-background");
+                setTimeout(function() {
+                    deleteDiv.innerHTML = "";
+                    deleteDiv.classList.remove("container-general-log-in");}, 700);
             }
         }
     })
-
 }
 
-function removeScreen(containerGeneral, closeImg) {
+function removeScreen(containerGeneral, closeImg, animation) {
     window.addEventListener("keydown", (element) => {
         if (element.key === "Escape") {
             containerGeneral.remove()
@@ -193,10 +291,13 @@ function removeScreen(containerGeneral, closeImg) {
     });
 
     closeImg.addEventListener("click", () => {
-        containerGeneral.remove()
+        animation.classList.add("animate__animated");
+        animation.classList.add("animate__fadeOutRight");
+        containerGeneral.classList.add("remove-background");
+        setTimeout(function() {
+            containerGeneral.innerHTML = "";
+            containerGeneral.classList.remove("container-general-log-in");}, 700);
     })
-
-
 }
 
 

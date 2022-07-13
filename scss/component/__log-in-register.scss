@@ -2,10 +2,10 @@
 @import "../base/_vars";
 
 .container-general-log-in {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   top: 0;
   background-color: $graySuperTrans;
   height: 100vh;
@@ -14,6 +14,7 @@
 
 
   .container-log-in {
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
     width: 20%;
@@ -168,4 +169,7 @@
   }
 
 
+}
+.remove-background {
+  background-color: transparent;
 }
