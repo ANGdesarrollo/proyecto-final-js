@@ -34,7 +34,7 @@
         .videos {
           width: 100%;
           @include flex(flex, center, flex-start, row);
-          
+
           video {
             width: 100%;
           }
