@@ -22,7 +22,6 @@ button.addEventListener("click", () => {
         SecureToken : "963337cb-587e-4951-aba9-9d7da5009606",
         To : 'alexisgraff123@gmail.com',
         From : email.value,
-        Phone : contact,
         Subject : "Contact Form",
         Body : message.value
     }).then(
