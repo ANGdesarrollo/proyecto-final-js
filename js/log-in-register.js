@@ -146,7 +146,7 @@ function captureData(register, form, deleteDiv) {
                 showConfirmButton: false,
                 iconColor: '#fff',
                 color: '#fff',
-                position: 'bottom-left',
+                position: 'top-right',
                 icon: 'error',
                 title: 'This user already exists !',
                 timer: 2500
@@ -162,7 +162,7 @@ function captureData(register, form, deleteDiv) {
                 showConfirmButton: false,
                 iconColor: '#fff',
                 color: '#fff',
-                position: 'bottom-left',
+                position: 'top-right',
                 icon: 'error',
                 title: 'Password dont match !',
                 timer: 2500
@@ -178,7 +178,7 @@ function captureData(register, form, deleteDiv) {
                 showConfirmButton: false,
                 iconColor: '#fff',
                 color: '#fff',
-                position: 'bottom-left',
+                position: 'top-right',
                 icon: 'error',
                 title: 'Complete all the fields !',
                 timer: 2500
@@ -202,7 +202,7 @@ function captureData(register, form, deleteDiv) {
                     showConfirmButton: false,
                     iconColor: '#fff',
                     color: '#fff',
-                    position: 'bottom-left',
+                    position: 'top-right',
                     icon: 'success',
                     title: 'You successfully register, please log in',
                     timer: 2500
@@ -229,7 +229,7 @@ function logInUser(button, form, deleteDiv, animation) {
                 showConfirmButton: false,
                 iconColor: '#fff',
                 color: '#fff',
-                position: 'bottom-left',
+                position: 'top-right',
                 icon: 'error',
                 title: 'You are not registered!',
                 timer: 2500
@@ -246,7 +246,7 @@ function logInUser(button, form, deleteDiv, animation) {
                     showConfirmButton: false,
                     iconColor: '#fff',
                     color: '#fff',
-                    position: 'bottom-left',
+                    position: 'top-right',
                     icon: 'error',
                     title: 'Wrong Username or Password',
                     timer: 2500
@@ -260,7 +260,7 @@ function logInUser(button, form, deleteDiv, animation) {
                     showConfirmButton: false,
                     iconColor: '#fff',
                     color: '#fff',
-                    position: 'bottom-left',
+                    position: 'top-right',
                     icon: 'success',
                     title: 'You succesfully logged in!',
                     timer: 2500

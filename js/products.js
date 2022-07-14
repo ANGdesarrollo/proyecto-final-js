@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (userLogIn == null) {
                         Swal.fire({
                             icon: "error",
-                            position: "bottom-start",
+                            position: "top-right",
                             title: "You must log in to buy !",
                             timer: 1000,
                             background: "hsl(193, 80%, 58%)",
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         Swal.fire({
                             icon: "success",
-                            position: "bottom-start",
+                            position: "top-right",
                             title: "Product added!",
                             timer: 1000,
                             background: "hsl(193, 80%, 58%)",
