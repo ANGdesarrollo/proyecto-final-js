@@ -2,6 +2,7 @@
 @import '../base/_mixins';
 
 .products-container {
+  overflow-x: hidden;
   min-height: fit-content;
   position: relative;
   display: grid;
