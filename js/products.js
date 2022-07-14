@@ -476,21 +476,47 @@ document.addEventListener("DOMContentLoaded", () => {
                     let costShipmentCP = 0;
                     e.preventDefault();
                     if (shippingDetailTitleA.checked) {
-                        if (inputCP.value < 10000) {
-                            costShipmentCP = 100
-                        } else if (inputCP.value > 10000) {
-                            costShipmentCP = 50
-                        } else {
-                            costShipmentCP = 75
-                        }
-
+                        if(inputCP != "") {
+                            if (inputCP.value < 10000) {
+                                costShipmentCP = 100
+                            } else if (inputCP.value > 10000) {
+                                costShipmentCP = 50
+                            } else {
+                                costShipmentCP = 75
+                            }
+                        } 
+                        
                         if (inputCP.value != "") {
                             price.textContent = `$ ${totalToPay + costShipmentCP}`
-                        }
-
-                        costShipment.textContent = `$ ${costShipmentCP}`
-                    } else {
-                        alert("debe seleccionar la")
+                            costShipment.textContent = `$ ${costShipmentCP}`
+                         } else {
+                        Swal.fire({
+                            position: 'center',
+                            background: "hsl(193, 80%, 58%)",
+                            width: "17rem",
+                            customClass: "swal-height",
+                            toast: true,
+                            showConfirmButton: false,
+                            iconColor: '#fff',
+                            color: '#fff',
+                            icon: 'error',
+                            title: 'You must select the checkBox!',
+                            timer: 2500
+                        }) 
+                    } } else {
+                        Swal.fire({
+                            position: 'center',
+                            background: "hsl(193, 80%, 58%)",
+                            width: "17rem",
+                            customClass: "swal-height",
+                            toast: true,
+                            showConfirmButton: false,
+                            iconColor: '#fff',
+                            color: '#fff',
+                            icon: 'error',
+                            title: 'You must complete the field!',
+                            timer: 2500
+                        })
                     }
                 })
 
@@ -500,15 +526,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 buttonFinish.addEventListener("click", () => {
                     Swal.fire({
                         position: 'center',
-                        title: 'Coming soon in node js',
+                        background: "hsl(193, 80%, 58%)",
+                        width: "17rem",
+                        customClass: "swal-height",
+                        toast: true,
+                        showConfirmButton: false,
+                        iconColor: '#fff',
                         color: '#fff',
-                        background: '#3ec4ea',
-                        showClass: {
-                            popup: 'animate__animated animate__fadeInDown'
-                        },
-                        hideClass: {
-                            popup: 'animate__animated animate__fadeOutUp'
-                        }
+                        title: 'Coming soon in NodeJS ! ',
+                        timer: 2500
                     })
                 })
             })
