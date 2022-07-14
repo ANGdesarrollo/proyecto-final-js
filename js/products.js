@@ -8,7 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // LOAD DOM CATEGORY
         let containerCategory = document.querySelector(".products-container__list-products");
-        let blockShop = document.querySelector(".block-shop");
+        let blockShop = document.createElement("div");
+        let body = document.querySelector("body");
+        body.append(blockShop)
+        console.log(body)
 
         function addCategoryDom() {
             //CREACION DE CONTENIDO
@@ -154,8 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 nameCategory.textContent = value.category;
                 imgProduct.setAttribute("src", value.imgPath);
                 price.textContent = `$ ${value.price} `;
-                imgShoppingCart.setAttribute("src", "../images/header-images/shopping-cart.png"
-                );
+                imgShoppingCart.setAttribute("src", "../images/header-images/shopping-cart.png");
                 imgShoppingCart.setAttribute("id", value.id);
                 nameProduct.textContent = value.name;
 
