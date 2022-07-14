@@ -1,7 +1,8 @@
 const form = document.querySelector(".inputs.form")
 const button = document.getElementById("js-send");
 
-button.addEventListener("click", () => {
+button.addEventListener("click", (e) => {
+    e.preventDefault();
     sendMail()
 })
 
