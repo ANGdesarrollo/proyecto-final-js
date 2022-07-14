@@ -62,8 +62,7 @@
   }
 
   &__buy-products {
-    overflow-y: scroll;
-    max-height: 80vh;
+    min-height: fit-content;
     padding: 3%;
     display: flex;
     justify-content: center;
@@ -166,93 +165,7 @@
 }
 
 @media screen and(max-width: 992px) {
-  .hidden-shopping-cart {
-    background-color: $grayTrans95;
-    z-index: 3;
-    top: 0;
-    position: fixed;
-    height: 100%;
-    width: 40%;
-    transition: all .5s ease;
-
-    .hidden-title {
-      height: 5%;
-      display: flex;
-      align-items: center;
-
-      img {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
-
-    .hidden {
-      overflow-y: scroll;
-      position: relative;
-      height: 80%;
-
-
-      &__shop-product {
-
-        font-size: .7rem;
-        @include flex(flex, center, flex-start, row);
-        flex-wrap: wrap;
-
-
-        .name-product {
-          width: 60%;
-        }
-
-        .img-product {
-          width: 20%;
-
-          img {
-            width: 70%;
-          }
-        }
-
-        .price-product-cart {
-          width: 20%;
-        }
-
-        .count-product {
-          border-radius: 5px;
-          background-color: $white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 60px;
-          height: 30px;
-
-          input {
-            text-align: center;
-            width: 1.5rem;
-          }
-
-          span {
-            color: $black;
-            width: .5rem;
-          }
-        }
-
-        .delete-product {
-          img {
-            width: 1.5rem;
-            height: 1.5rem;
-          }
-        }
-      }
-    }
-
-    #js-hidden-total {
-
-      height: 15%;
-      flex-direction: column;
-      display: flex;
-    }
-  }
-
-
+  
   .products-container {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: fit-content(100%);
@@ -264,7 +177,8 @@
     }
 
     &__buy-products {
-      max-height: 50vh;
+     overflow-y: inherit;
+     height: fit-content;
       padding: 0;
       margin-bottom: 1rem;
       grid-column: 1 / 6;
