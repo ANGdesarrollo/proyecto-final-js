@@ -256,18 +256,18 @@ document.addEventListener("DOMContentLoaded", () => {
             titleHiddenContainer.innerHTML = "";
             totalHiddenContainer.innerHTML = "";
             // CREACION DE ESPACIOS
-            let hiddenTitleDiv = document.createElement("div");
-             hiddenTitleImg = document.createElement("img"),
-             hiddenTitleh2 = document.createElement("h2"),
-             hiddenTotalDiv = document.createElement("div"),
-             hiddenTotalNumberDiv = document.createElement("div"),
-             hiddenTotalNumberh2 = document.createElement("h2"),
-             hiddenTotalNumberh2a = document.createElement("h2"),
-             hiddenContinueDiv = document.createElement("div"),
-             hiddenDeleteDiv = document.createElement("div"),
-             hiddenContinueButton = document.createElement("button"),
-             emptyProductImg = document.createElement("img"),
-             emptyProducth2 = document.createElement("h2");
+            const hiddenTitleDiv = document.createElement("div"),
+                hiddenTitleImg = document.createElement("img"),
+                hiddenTitleh2 = document.createElement("h2"),
+                hiddenTotalDiv = document.createElement("div"),
+                hiddenTotalNumberDiv = document.createElement("div"),
+                hiddenTotalNumberh2 = document.createElement("h2"),
+                hiddenTotalNumberh2a = document.createElement("h2"),
+                hiddenContinueDiv = document.createElement("div"),
+                hiddenDeleteDiv = document.createElement("div"),
+                hiddenContinueButton = document.createElement("button"),
+                emptyProductImg = document.createElement("img"),
+                emptyProducth2 = document.createElement("h2");
             //AGREGAR CLASES
             hiddenTitleDiv.classList.add("hidden-title");
             hiddenTitleImg.classList.add("arrow-close");
@@ -300,22 +300,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 // CALCULADOR DEL TOTAL A COMPRAR
                 totalToPay += item.qty * item.price;
                 // CREADOR DE ESPACIOS
-                let containerAddedProduct = document.createElement("div"),
-                 imgDivProduct = document.createElement("div"),
-                 imgProduct = document.createElement("img"),
-                 nameDivProduct = document.createElement("div"),
-                 priceDivProduct = document.createElement("div"),
-                 priceTotal = document.createElement("div");
-                 priceDivProductPerUnit = document.createElement("div"),
-                 countDiv = document.createElement("div"),
-                 input = document.createElement("input"),
-                 spanLeft = document.createElement("span"),
-                 spanRight = document.createElement("span"),
-                 deleteProductDiv = document.createElement("div"),
-                 deleteProductImg = document.createElement("img"),
-                 
+                const containerAddedProduct = document.createElement("div"),
+                    imgDivProduct = document.createElement("div"),
+                    imgProduct = document.createElement("img"),
+                    nameDivProduct = document.createElement("div"),
+                    priceDivProduct = document.createElement("div"),
+                    priceTotal = document.createElement("div"),
+                    priceDivProductPerUnit = document.createElement("div"),
+                    countDiv = document.createElement("div"),
+                    input = document.createElement("input"),
+                    spanLeft = document.createElement("span"),
+                    spanRight = document.createElement("span"),
+                    deleteProductDiv = document.createElement("div"),
+                    deleteProductImg = document.createElement("img");
 
-                // AGREGAR CLASES
+
+                    // AGREGAR CLASES
                 containerAddedProduct.classList.add("hidden__shop-product");
                 nameDivProduct.classList.add("name-product");
                 imgDivProduct.classList.add("img-product");
@@ -361,14 +361,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             resumenBuy(hiddenContinueButton, container, hiddenDeleteDiv, hiddenContinueDiv, hiddenTotalNumberh2, hiddenTotalNumberh2a);
         };
-
+        //    RESUMEN DE LA COMPRA QUE QUIERE HACER EL CLIENTE
         function resumenBuy(hiddenContinueButton, container, emptyCart, divTotal, total, price) {
 
             hiddenContinueButton.addEventListener("click", () => {
                 container.innerHTML = "";
                 emptyCart.remove();
-
-
 
                 let goBack = document.createElement("button");
                 let titleResumeBuy = document.createElement("div");
@@ -380,10 +378,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 let labelCP = document.createElement("label");
                 let buttonCheck = document.createElement("button");
                 let buttonCheckDiv = document.createElement("div");
+                let costShipment = document.createElement("div");
                 let freeDetail = document.createElement("div");
                 let divFreeOne = document.createElement("div");
                 let divFreeTwo = document.createElement("div");
-                let divFreeThree= document.createElement("div");
+                let divFreeThree = document.createElement("div");
 
                 divTotal.children[1] && divTotal.removeChild(divTotal.lastChild);
 
@@ -391,13 +390,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 container.append(titleResumeBuy, detailsDiv, shippingDetailDiv, freeDetail);
                 freeDetail.append(divFreeOne, divFreeTwo, divFreeThree);
                 shippingDetailDiv.append(shippingDetailTitle, containerInput);
-                containerInput.append(inputCP, labelCP, buttonCheckDiv);
+                containerInput.append(inputCP, labelCP, buttonCheckDiv, costShipment);
                 buttonCheckDiv.append(buttonCheck)
 
                 detailsDiv.classList.add("hidden__box-container-details");
                 containerInput.classList.add("container-inputs");
                 shippingDetailTitle.classList.add("title-ship");
-                goBack.classList.add("button-class-style")
+                costShipment.classList.add("cost-shipment");
+                goBack.classList.add("button-class-style");
                 buttonCheckDiv.classList.add("button-check-div");
                 container.classList.add("remove-scroll");
                 freeDetail.classList.add("free-retire");
@@ -423,6 +423,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 })
 
+                // COSTO DE ENVIO
+
                 //CALCULAR EL TOTAL CON ENVIO
 
                 let dataLocal = JSON.parse(localStorage.getItem("cart"));
@@ -432,17 +434,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.log(totalToPay)
                     let boxProductDetail = document.createElement("div");
                     let nameProduct = document.createElement("div");
+                    let imgProductDiv = document.createElement("div");
+                    let imgProduct = document.createElement("img");
                     let qtyProduct = document.createElement("div");
                     let TotalPerProduct = document.createElement("div");
 
+
                     detailsDiv.append(boxProductDetail);
-                    boxProductDetail.append(nameProduct, qtyProduct, TotalPerProduct);
+                    boxProductDetail.append(imgProductDiv, nameProduct, qtyProduct, TotalPerProduct);
+                    imgProductDiv.append(imgProduct)
 
                     boxProductDetail.classList.add("products-details-container");
                     nameProduct.classList.add("name-product-detail");
                     qtyProduct.classList.add("qty-product-detail");
                     TotalPerProduct.classList.add("total-product-detail");
+                    imgProductDiv.classList.add("img-product-detail");
 
+                    imgProduct.setAttribute('src', item.imgPath);
                     nameProduct.textContent = item.name;
                     qtyProduct.textContent = item.qty;
                     TotalPerProduct.textContent = `$ ${item.qty * item.price}`;
@@ -450,12 +458,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 buttonCheck.addEventListener("click", (e) => {
                     e.preventDefault();
-                    let costShipment = 100
+                    let costShipmentCP = 0;
 
-                    if(inputCP.value != "") {
-                        price.textContent = `$ ${totalToPay + costShipment}`
-
+                    if(inputCP.value < 10000) {
+                        costShipmentCP = 100
+                    } else if(inputCP.value > 10000) {
+                        costShipmentCP = 50
+                    } else {
+                        costShipmentCP = 75
                     }
+
+                    if (inputCP.value != "") {
+                        price.textContent = `$ ${totalToPay + costShipmentCP}`
+                    }
+
+                    costShipment.textContent = `$ ${costShipmentCP}`
+
+
                 })
             })
         }

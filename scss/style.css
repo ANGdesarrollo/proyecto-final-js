@@ -915,15 +915,17 @@ html {
   margin-left: 1rem;
 }
 .hidden-shopping-cart .hidden {
-  padding-left: 1rem;
   overflow-y: scroll;
   position: relative;
   height: 70%;
 }
 .hidden-shopping-cart .hidden form {
+  border-top: 2px solid #fff;
+  background-color: #000000;
   height: 22.5%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 .hidden-shopping-cart .hidden form .title-ship {
   grid-column: 1/6;
@@ -934,17 +936,25 @@ html {
   grid-template-columns: repeat(4, 1fr);
 }
 .hidden-shopping-cart .hidden form .container-inputs input {
-  grid-column: 1/3;
+  width: 100%;
+  grid-column: 1/2;
 }
 .hidden-shopping-cart .hidden form .container-inputs label {
-  grid-column: 1/3;
+  margin-top: 1rem;
+  grid-column: 1/2;
+}
+.hidden-shopping-cart .hidden form .container-inputs .cost-shipment {
+  align-self: center;
+  text-align: center;
+  grid-row: 1/2;
+  grid-column: 4/5;
 }
 .hidden-shopping-cart .hidden form .container-inputs .button-check-div {
   display: flex;
   align-items: center;
-  justify-content: center;
-  grid-row: 1/3;
-  grid-column: 3/4;
+  justify-content: flex-start;
+  grid-row: 1/2;
+  grid-column: 2/4;
 }
 .hidden-shopping-cart .hidden form .container-inputs .button-check-div button:hover {
   background-color: steelblue;
@@ -952,13 +962,14 @@ html {
 }
 .hidden-shopping-cart .hidden form .container-inputs .button-check-div button {
   border: none;
-  border-radius: 0.5rem;
-  background-color: #29d0fd;
+  background-color: rgb(41, 147, 253);
   color: #fff;
   height: 40px;
   width: 70%;
 }
 .hidden-shopping-cart .hidden .free-retire {
+  border-top: 2px solid #fff;
+  background-color: #000000;
   height: 22.5%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -999,8 +1010,20 @@ html {
   display: flex;
   justify-content: space-around;
 }
+.hidden-shopping-cart .hidden__box-container-details .products-details-container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hidden-shopping-cart .hidden__box-container-details .products-details-container .img-product-detail {
+  width: 10%;
+}
+.hidden-shopping-cart .hidden__box-container-details .products-details-container .img-product-detail img {
+  width: 2rem;
+  height: 2rem;
+}
 .hidden-shopping-cart .hidden__box-container-details .products-details-container .name-product-detail {
-  width: 60%;
+  width: 50%;
 }
 .hidden-shopping-cart .hidden__box-container-details .products-details-container .name-product-detail {
   width: 60%;
