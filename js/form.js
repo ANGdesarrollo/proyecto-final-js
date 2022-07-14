@@ -4,6 +4,8 @@ const button = document.getElementById("js-send");
 button.addEventListener("click", (e) => {
     e.preventDefault();
     sendMail()
+    setTimeout(function() {
+        window.location.replace('../sections/success-form.html')}, 500);
 })
 
 function sendMail() {
@@ -22,6 +24,5 @@ function sendMail() {
 
 
 
-// setTimeout(function() {
-//     window.location.replace('../sections/home.html')}, 4000);
+
 
