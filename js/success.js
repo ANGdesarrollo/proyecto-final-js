@@ -1,2 +1,2 @@
 setTimeout(function() {
-    window.location.replace('../sections/home.html')}, 500);
+    window.location.replace('../sections/home.html')}, 2000);
