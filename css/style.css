@@ -841,7 +841,6 @@ html {
     grid-column: 1/6;
   }
   .products-container__buy-products {
-    overflow-y: inherit;
     height: fit-content;
     padding: 0;
     margin-bottom: 1rem;
@@ -1490,7 +1489,7 @@ html {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
-  width: 20%;
+  width: 380px;
   height: 460px;
   background-color: #3e3e3e;
 }
@@ -1622,6 +1621,34 @@ html {
   background-color: transparent;
 }
 
+@media screen and (max-width: 992px) {
+  .container-general-log-in .container-log-in {
+    height: fit-content;
+  }
+  .container-general-log-in .container-log-in .form-container-user {
+    width: 100%;
+    height: 91%;
+  }
+  .container-general-log-in .container-log-in .form-container-user .title-user {
+    font-size: 1.5em;
+  }
+  .container-general-log-in .container-log-in .form-container-user .register-user button {
+    border-radius: 0.2rem;
+    margin: 0.5rem;
+    background-color: #29d0fd;
+    width: 35%;
+    height: 45px;
+    border: none;
+    color: white;
+  }
+  .container-general-log-in .upper-container {
+    height: 1.5rem;
+  }
+  .container-general-log-in .upper-container img {
+    width: 25px;
+    height: 25px;
+  }
+}
 footer {
   display: flex;
   padding-left: 5%;

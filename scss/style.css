@@ -841,7 +841,6 @@ html {
     grid-column: 1/6;
   }
   .products-container__buy-products {
-    overflow-y: inherit;
     height: fit-content;
     padding: 0;
     margin-bottom: 1rem;
@@ -1490,7 +1489,7 @@ html {
   position: absolute;
   display: flex;
   flex-wrap: wrap;
-  width: 20%;
+  width: 380px;
   height: 460px;
   background-color: #3e3e3e;
 }
@@ -1622,6 +1621,138 @@ html {
   background-color: transparent;
 }
 
+@media screen and (max-width: 992px) {
+  .container-general-log-in .container-log-in {
+    height: fit-content;
+  }
+  .container-general-log-in .container-log-in .form-container-user {
+    width: 100%;
+    height: 91%;
+  }
+  .container-general-log-in .container-log-in .form-container-user .title-user {
+    font-weight: bold;
+    font-size: 2rem;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+  }
+  .container-general-log-in .container-log-in .form-container-user .title-user span {
+    height: fit-content;
+    padding-left: 10px;
+  }
+  .container-general-log-in .container-log-in .form-container-user .title-user #span-left-title-user {
+    width: fit-content;
+    position: relative;
+  }
+  .container-general-log-in .container-log-in .form-container-user .title-user #span-left-title-user::before {
+    position: absolute;
+    content: "";
+    padding: 5px;
+    background-color: #29d0fd;
+    bottom: 0;
+    width: 80%;
+  }
+  .container-general-log-in .container-log-in .form-container-user .user-container-data {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data {
+    padding: 3%;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data label {
+    color: #3e3e3e;
+  }
+  .container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data input {
+    width: 70%;
+    font-size: 0.7rem;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    text-align: center;
+  }
+  .container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data ::placeholder {
+    color: #fff;
+    border: none;
+    font-size: 0.7rem;
+  }
+  .container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data input:focus {
+    border-bottom-color: #fff;
+  }
+  .container-general-log-in .container-log-in .form-container-user .register-user {
+    padding-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .container-general-log-in .container-log-in .form-container-user .register-user button {
+    border-radius: 0.2rem;
+    margin: 0.5rem;
+    background-color: #29d0fd;
+    width: 30%;
+    height: 40px;
+    border: none;
+    color: white;
+  }
+  .container-general-log-in .container-log-in .form-container-user .register-user button:hover {
+    background-color: steelblue;
+    transform: translateY(2px);
+  }
+  .container-general-log-in .upper-container {
+    position: relative;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: #4d4d4f;
+    width: 100%;
+    height: 15%;
+  }
+  .container-general-log-in .upper-container img {
+    position: absolute;
+    right: 0;
+    width: 35px;
+    height: 35px;
+  }
+  .container-general-log-in .upper-container #js-span-a {
+    margin-right: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-color: #29d0fd;
+  }
+  .container-general-log-in .upper-container #js-span-b {
+    margin-right: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-color: hsl(193deg, 80%, 58%);
+  }
+  .container-general-log-in .upper-container #js-span-c {
+    margin-right: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    content: "";
+    background-color: hsl(193deg, 50%, 58%);
+  }
+
+  .remove-background {
+    background-color: transparent;
+  }
+}
 footer {
   display: flex;
   padding-left: 5%;

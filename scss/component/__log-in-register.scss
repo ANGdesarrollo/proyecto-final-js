@@ -17,7 +17,7 @@
     position: absolute;
     display: flex;
     flex-wrap: wrap;
-    width: 20%;
+    width: 380px;
     height: 460px;
     background-color: $grayForm;
 
@@ -51,8 +51,6 @@
           width: 80%;
         }
       }
-
-
 
       .user-container-data {
         @include flex(flex, center, flex-start, column);
@@ -164,12 +162,48 @@
       background-color: $lightBlue-degrade-1;
 
     }
-
-
   }
-
-
 }
+
 .remove-background {
   background-color: transparent;
+}
+
+@media screen and (max-width: 992px) {
+  .container-general-log-in {
+    .container-log-in {
+      height: fit-content;
+
+      .form-container-user {
+        width: 100%;
+        height: 91%;
+
+        .title-user {
+          font-size: 1.5em;
+        }
+
+        .register-user {
+          button {
+            border-radius: .2rem;
+            margin: .5rem;
+            background-color: $lightBlue;
+            width: 35%;
+            height: 45px;
+            border: none;
+            color: white;
+    
+          }
+        }
+      }
+    }
+    
+    .upper-container {
+      height: 1.5rem;
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
 }
