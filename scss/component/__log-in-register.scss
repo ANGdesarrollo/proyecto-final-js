@@ -2,13 +2,13 @@
 @import "../base/_vars";
 
 .container-general-log-in {
-  position: absolute;
+  height: 100%;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   top: 0;
   background-color: $graySuperTrans;
-  height: 100vh;
   width: 100%;
   z-index: 5000;
 
@@ -191,12 +191,12 @@
             height: 45px;
             border: none;
             color: white;
-    
+
           }
         }
       }
     }
-    
+
     .upper-container {
       height: 1.5rem;
 
@@ -204,6 +204,14 @@
         width: 25px;
         height: 25px;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container-general-log-in {
+    .container-log-in {
+      width: 100%;
     }
   }
 }

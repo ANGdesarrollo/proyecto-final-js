@@ -885,9 +885,9 @@ html {
 .block-shop-active {
   overflow-x: hidden;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   width: 100vw;
-  height: 110vh;
+  height: 100vh;
   background-color: rgba(128, 128, 128, 0.4);
   top: 0;
   bottom: 0;
@@ -920,6 +920,7 @@ html {
   height: 70%;
 }
 .hidden-shopping-cart .hidden form {
+  padding-left: 1rem;
   border-top: 2px solid #fff;
   background-color: #000000;
   height: 22.5%;
@@ -928,7 +929,13 @@ html {
   justify-content: space-around;
 }
 .hidden-shopping-cart .hidden form .title-ship {
+  display: flex;
+  align-items: center;
   grid-column: 1/6;
+  display: flex;
+}
+.hidden-shopping-cart .hidden form .title-ship h5 {
+  margin: 0;
 }
 .hidden-shopping-cart .hidden form .container-inputs {
   grid-column: 1/5;
@@ -968,27 +975,32 @@ html {
   width: 70%;
 }
 .hidden-shopping-cart .hidden .free-retire {
+  padding-left: 1rem;
   border-top: 2px solid #fff;
   background-color: #000000;
   height: 22.5%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto;
-  justify-items: center;
-}
-.hidden-shopping-cart .hidden .free-retire div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-items: left;
 }
 .hidden-shopping-cart .hidden .free-retire__title {
+  display: flex;
+  align-items: center;
   grid-column: 1/5;
 }
 .hidden-shopping-cart .hidden .free-retire__location {
+  align-content: flex-start;
+  flex-direction: column;
   grid-column: 1/5;
-  display: flex;
+}
+.hidden-shopping-cart .hidden .free-retire__location h5 {
+  margin: 0;
+  padding-left: 0.3rem;
 }
 .hidden-shopping-cart .hidden .free-retire__free {
+  display: flex;
+  align-items: center;
   grid-column: 5/6;
   grid-row: 1/3;
 }
@@ -1476,13 +1488,13 @@ html {
 }
 
 .container-general-log-in {
-  position: absolute;
+  height: 100%;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   top: 0;
   background-color: rgba(128, 128, 128, 0.4);
-  height: 100vh;
   width: 100%;
   z-index: 5000;
 }
@@ -1648,6 +1660,11 @@ html {
   .container-general-log-in .upper-container img {
     width: 25px;
     height: 25px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .container-general-log-in .container-log-in {
+    width: 100%;
   }
 }
 footer {

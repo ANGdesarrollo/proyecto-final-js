@@ -3,6 +3,8 @@ const body = document.querySelector("body");
 const localStorageUser = [];
 const userLoggedIn = [];
 
+
+
 iconUser.addEventListener("click", () => {
     createDivLogIn()
 })
@@ -29,8 +31,7 @@ function createDivLogIn() {
     let registerUser = document.createElement("div");
     let buttonLogIn = document.createElement("button");
     let buttonRegister = document.createElement("button");
-
-
+   
     containerGeneral.classList.add("container-general-log-in");
     container.classList.add("container-log-in");
     upperContainer.classList.add("upper-container");
@@ -54,6 +55,15 @@ function createDivLogIn() {
     divUser.append(labelUser, inputUser);
     divPassword.append(labelPassword, inputPassword);
     divTitle.append(titleSpan1, titleSpan2);
+
+    /* $(document).ready(function() {
+        let height = $(window).height();
+        containerGeneral.height(height)
+    }); */
+
+    
+
+    
 
     spanPoint1.setAttribute("id", "js-span-a");
     spanPoint2.setAttribute("id", "js-span-b");
@@ -113,11 +123,15 @@ function createDivLogIn() {
 
         captureData(buttonConfirm, containerForm, containerGeneral);
 
+       
+
 
     })
 
     removeScreen(containerGeneral, closeImg, container);
 }
+
+
 
 function captureData(register, form, deleteDiv) {
     let repeatUsers = JSON.parse(localStorage.getItem("user"));
@@ -139,6 +153,7 @@ function captureData(register, form, deleteDiv) {
         // console.log(repeatUsers.find((el) => el.user == "Purran"))
         if (repeatUsersFind != undefined) {
             Swal.fire({
+                position: 'center',
                 background: "hsl(193, 80%, 58%)",
                 width: "17rem",
                 customClass: "swal-height",

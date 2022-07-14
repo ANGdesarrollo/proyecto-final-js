@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     deleteProductImg = document.createElement("img");
 
 
-                    // AGREGAR CLASES
+                // AGREGAR CLASES
                 containerAddedProduct.classList.add("hidden__shop-product");
                 nameDivProduct.classList.add("name-product");
                 imgDivProduct.classList.add("img-product");
@@ -369,27 +369,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 emptyCart.remove();
 
                 let goBack = document.createElement("button");
-                let titleResumeBuy = document.createElement("div");
-                let detailsDiv = document.createElement("div");
-                let shippingDetailDiv = document.createElement("form");
-                let shippingDetailTitle = document.createElement("div");
-                let containerInput = document.createElement("div");
-                let inputCP = document.createElement("input");
-                let labelCP = document.createElement("label");
-                let buttonCheck = document.createElement("button");
-                let buttonCheckDiv = document.createElement("div");
-                let costShipment = document.createElement("div");
-                let freeDetail = document.createElement("div");
-                let divFreeOne = document.createElement("div");
-                let divFreeTwo = document.createElement("div");
-                let divFreeThree = document.createElement("div");
+                titleResumeBuy = document.createElement("div"),
+                    detailsDiv = document.createElement("div"),
+                    shippingDetailDiv = document.createElement("form"),
+                    shippingDetailTitle = document.createElement("div"),
+                    shippingDetailTitleA = document.createElement("input"),
+                    shippingDetailTitleB = document.createElement("h4"),
+                    containerInput = document.createElement("div"),
+                    inputCP = document.createElement("input"),
+                    labelCP = document.createElement("label"),
+                    buttonCheck = document.createElement("button"),
+                    buttonCheckDiv = document.createElement("div"),
+                    costShipment = document.createElement("div"),
+                    freeDetail = document.createElement("div"),
+                    divFreeOne = document.createElement("div"),
+                    divFreeTwo = document.createElement("div"),
+                    divFreeTwoA = document.createElement("h5"),
+                    divFreeTwoB = document.createElement("h5"),
+                    divFreeTwoC = document.createElement("h5"),
+                    divFreeThree = document.createElement("div"),
+                    divFreeOneA = document.createElement("input"),
+                    divFreeOneB = document.createElement("h4");
+
 
                 divTotal.children[1] && divTotal.removeChild(divTotal.lastChild);
 
                 divTotal.append(goBack);
                 container.append(titleResumeBuy, detailsDiv, shippingDetailDiv, freeDetail);
                 freeDetail.append(divFreeOne, divFreeTwo, divFreeThree);
+                divFreeOne.append(divFreeOneA, divFreeOneB);
+                divFreeTwo.append(divFreeTwoA, divFreeTwoB, divFreeTwoC);
                 shippingDetailDiv.append(shippingDetailTitle, containerInput);
+                shippingDetailTitle.append(shippingDetailTitleA, shippingDetailTitleB)
                 containerInput.append(inputCP, labelCP, buttonCheckDiv, costShipment);
                 buttonCheckDiv.append(buttonCheck)
 
@@ -405,17 +416,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 divFreeTwo.classList.add("free-retire__location");
                 divFreeThree.classList.add("free-retire__free");
 
+
                 goBack.textContent = "Back";
                 titleResumeBuy.textContent = "Resume";
-                shippingDetailTitle.textContent = "Shipping methods";
+                shippingDetailTitleA.setAttribute('type', 'checkbox');
+                shippingDetailTitleB.textContent = "Shipping methods";
                 labelCP.setAttribute("id", "inputCP");
                 inputCP.setAttribute("id", "inputCP");
                 labelCP.textContent = "Enter your zip";
                 buttonCheck.textContent = "Calculate";
                 total.textContent = "Total : ";
-                divFreeOne.textContent = "Our place";
-                divFreeTwo.textContent = "Game On Calle Culo Duro 5332";
+                divFreeOneB.textContent = "Our local";
+                divFreeTwoA.textContent = `ARGENTINA - Bahia Blanca`;
+                divFreeTwoB.textContent = 'Adress: Colon 473';
+                divFreeTwoC.textContent = 'Contact us from monday to friday from 9am to 18pm';
                 divFreeThree.textContent = "FREE";
+                divFreeOneA.setAttribute("type", "checkbox");
 
                 goBack.addEventListener("click", () => {
                     container.classList.remove("remove-scroll");
@@ -432,12 +448,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 dataLocal.forEach(item => {
                     totalToPay += item.price * item.qty
                     console.log(totalToPay)
-                    let boxProductDetail = document.createElement("div");
-                    let nameProduct = document.createElement("div");
-                    let imgProductDiv = document.createElement("div");
-                    let imgProduct = document.createElement("img");
-                    let qtyProduct = document.createElement("div");
-                    let TotalPerProduct = document.createElement("div");
+                    let boxProductDetail = document.createElement("div"),
+                        nameProduct = document.createElement("div"),
+                        imgProductDiv = document.createElement("div"),
+                        imgProduct = document.createElement("img"),
+                        qtyProduct = document.createElement("div"),
+                        TotalPerProduct = document.createElement("div");
 
 
                     detailsDiv.append(boxProductDetail);
@@ -457,24 +473,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
 
                 buttonCheck.addEventListener("click", (e) => {
-                    e.preventDefault();
                     let costShipmentCP = 0;
+                    e.preventDefault();
+                    if (shippingDetailTitleA.checked) {
+                        if (inputCP.value < 10000) {
+                            costShipmentCP = 100
+                        } else if (inputCP.value > 10000) {
+                            costShipmentCP = 50
+                        } else {
+                            costShipmentCP = 75
+                        }
 
-                    if(inputCP.value < 10000) {
-                        costShipmentCP = 100
-                    } else if(inputCP.value > 10000) {
-                        costShipmentCP = 50
+                        if (inputCP.value != "") {
+                            price.textContent = `$ ${totalToPay + costShipmentCP}`
+                        }
+
+                        costShipment.textContent = `$ ${costShipmentCP}`
                     } else {
-                        costShipmentCP = 75
+                        alert("debe seleccionar la")
                     }
+                })
 
-                    if (inputCP.value != "") {
-                        price.textContent = `$ ${totalToPay + costShipmentCP}`
-                    }
+                /* FINALIZACION DE LA COMPRA */
 
-                    costShipment.textContent = `$ ${costShipmentCP}`
-
-
+                let buttonFinish = hiddenContinueButton;
+                buttonFinish.addEventListener("click", () => {
+                    Swal.fire({
+                        position: 'center',
+                        title: 'Coming soon in node js',
+                        color: '#fff',
+                        background: '#3ec4ea',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    })
                 })
             })
         }
@@ -631,9 +666,9 @@ document.addEventListener("DOMContentLoaded", () => {
             let saveStorage = JSON.parse(localStorage.getItem("cart"));
 
             saveStorage != null &&
-            saveStorage.forEach((item) => {
-                shopCartSelected.push(item);
-            });
+                saveStorage.forEach((item) => {
+                    shopCartSelected.push(item);
+                });
 
             loadDomProducts(shopCartSelected);
         }
