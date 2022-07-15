@@ -1,0 +1,41 @@
+¡¡Hola!! Hago entrega del proyecto final de JS. A continuación, dejo el link donde esta Hosteado =
+
+•	https://thriving-cat-d7e377.netlify.app/
+
+El proyecto cuenta con:
+En todas las secciones =
+•	Un Header animado con un menú hamburguesa cuya funcionalidad es dada por JS.
+•	En el mismo Header podes acceder al icono de usuario donde = Se puede acceder al registro del usuario.
+No te dejara registrarte en los casos de = No completar un espacio, si el usuario ya esta siendo utilizado, o si las contraseñas no coinciden.
+Una vez registrado accedes al Menu Log In donde no podras loguear si = No completas los campos o la contraseña o usuario son incorrectos o no te registraste.
+•	Una vez registrado se puede acceder a comprar al carrito. Los datos de registro son guardados en el localStorage.
+
+En la sección Products =
+•	Una generación dinámica en el documento HTML mediante JS de la categoría de productos y los productos que
+quiere seleccionar el usuario.Esta generacion dinamica se da llamando a mi JSON mediante fetch ASYNC.
+•	Un filtro en el que podes ordenar los productos de mayor precio a menor precio y de menor precio a mayor precio.
+•	Una vez comprado un producto, podrás acceder al carrito mediante el icono del Header.
+En el mismo, hay un detalle de todos los productos comprados y el total a pagar. Se pueden agregar o quitar productos en el mismo lugar y tanto el precio de la cantidad
+de productos que posees como el total se actualizarán automaticamente.
+•	Al presionar continuar, pasas al menú de detalles de lo seleccionado, en el mismo podrás elegir el tipo de envío.
+En caso de que la seleccion sea por flete, realice una funcion en la que el Codigo Postal equivale un precio determinado y este se sumara al precio final.
+(como no puedo poner todos los codigos postales, puse 3 variantes de precio)
+•	La próxima sección de pago final será hecha con back end, NodeJS.
+
+Aclaración = Tanto los productos que elije el usuario para ver (teclados , mouse etc) como los ítems dentro del carrito, se guardan en el localStorage
+para ser visualizados incluso después de cerrar el navegador.
+
+En la sección Home =
+•	Un carrousel de videos.
+
+En la sección de Contacto =
+
+•	Un formulario que esta atado a una API de MAIL, en el que si llenas los datos, me va a llegar la consulta a mi email.
+
+LIBRERIAS UTILIZADAS =
+
+https://sweetalert2.github.io/
+https://animate.style/
+https://dashboard.emailjs.com/
+
+
