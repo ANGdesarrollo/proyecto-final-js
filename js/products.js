@@ -1,17 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     let shopCartSelected = [];
 
+    //FETCH QUE LLAMA AL JSON
+
     const pedirDatos = async () => {
         const respuesta = await fetch("../json/products.json");
         let data = await respuesta.json();
 
 
-        // LOAD DOM CATEGORY
+        // CREANDO EL DOM DE LAS CATEGORIAS
         let containerCategory = document.querySelector(".products-container__list-products");
         let blockShop = document.createElement("div");
         let body = document.querySelector("body");
-        body.append(blockShop)
-        console.log(body)
+        body.append(blockShop);
+        console.log(body);
 
         function addCategoryDom() {
             //CREACION DE CONTENIDO
@@ -111,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // CONVERVAR LOS PRODUCTOS SELECCIONADOS POR EL USUARIO EN PANTALLA
+        // CONSVERVAR LOS PRODUCTOS SELECCIONADOS POR EL USUARIO EN PANTALLA
 
         JSON.parse(localStorage.getItem("productSelected")) != null && targetCategory(JSON.parse(localStorage.getItem("productSelected")));
 
@@ -122,16 +124,16 @@ document.addEventListener("DOMContentLoaded", () => {
             eTarget.forEach((value) => {
                 containerProducts.innerHTML = "";
                 // CREACION DE CONTENIDO
-                let containerBoxProduct = document.createElement("div");
-                let divImgProduct = document.createElement("div");
-                let imgProduct = document.createElement("img");
-                let divShopPrice = document.createElement("div");
-                let price = document.createElement("div");
-                let divShoppingCart = document.createElement("div");
-                let imgShoppingCart = document.createElement("img");
-                let nameProductDiv = document.createElement("div");
-                let nameCategory = document.createElement("h2");
-                let nameProduct = document.createElement("h4");
+                let containerBoxProduct = document.createElement("div"),
+                    divImgProduct = document.createElement("div"),
+                    imgProduct = document.createElement("img"),
+                    divShopPrice = document.createElement("div"),
+                    price = document.createElement("div"),
+                    divShoppingCart = document.createElement("div"),
+                    imgShoppingCart = document.createElement("img"),
+                    nameProductDiv = document.createElement("div"),
+                    nameCategory = document.createElement("h2"),
+                    nameProduct = document.createElement("h4");
 
                 //   AGREGADO DE CLASES
                 containerBoxProduct.classList.add("product-box");
@@ -226,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 imgPath: selectedProduct.imgPath,
             };
 
-            // PUSHEO AL ARRAY VACIO Y FILTRADO SI YA ESTA EN EL CARRITO ASI NO SE AGREGA DOS VECES
+            // PUSH AL ARRAY VACIO Y FILTRADO SI YA ESTA EN EL CARRITO ASI NO SE AGREGA DOS VECES
 
             let exist = false;
             shopCartSelected.forEach((item) => {
@@ -362,6 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             resumenBuy(hiddenContinueButton, container, hiddenDeleteDiv, hiddenContinueDiv, hiddenTotalNumberh2, hiddenTotalNumberh2a);
         };
+
         //    RESUMEN DE LA COMPRA QUE QUIERE HACER EL CLIENTE
         function resumenBuy(hiddenContinueButton, container, emptyCart, divTotal, total, price) {
 
@@ -369,8 +372,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 container.innerHTML = "";
                 emptyCart.remove();
 
-                let goBack = document.createElement("button");
-                titleResumeBuy = document.createElement("div"),
+                let goBack = document.createElement("button"),
+                    titleResumeBuy = document.createElement("div"),
                     detailsDiv = document.createElement("div"),
                     shippingDetailDiv = document.createElement("form"),
                     shippingDetailTitle = document.createElement("div"),
@@ -473,12 +476,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     TotalPerProduct.textContent = `$ ${item.qty * item.price}`;
                 })
 
-                
 
                 buttonCheck.addEventListener("click", (e) => {
-                    
+
                     let costShipmentCP = 0;
-                    if(inputCP != "") {
+                    if (inputCP != "") {
                         if (inputCP.value < 10000) {
                             costShipmentCP = 100
                         } else if (inputCP.value > 10000) {
@@ -489,10 +491,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     e.preventDefault();
                     if (shippingDetailTitleA.checked) {
-                         if (inputCP.value != "") {
+                        if (inputCP.value != "") {
                             price.textContent = `$ ${totalToPay + costShipmentCP}`
                             costShipment.textContent = `$ ${costShipmentCP}`
-                         } else {
+                        } else {
+                            Swal.fire({
+                                position: 'center',
+                                background: "hsl(193, 80%, 58%)",
+                                width: "17rem",
+                                customClass: "swal-height",
+                                toast: true,
+                                showConfirmButton: false,
+                                iconColor: '#fff',
+                                color: '#fff',
+                                icon: 'error',
+                                title: 'You must complete the field!',
+                                timer: 2500
+                            })
+                        }
+                    } else {
                         Swal.fire({
                             position: 'center',
                             background: "hsl(193, 80%, 58%)",
@@ -503,21 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             iconColor: '#fff',
                             color: '#fff',
                             icon: 'error',
-                            title: 'You must complete the field!',
-                            timer: 2500
-                        }) 
-                    } } else {
-                        Swal.fire({
-                            position: 'center',
-                            background: "hsl(193, 80%, 58%)",
-                            width: "17rem",
-                            customClass: "swal-height",
-                            toast: true,
-                            showConfirmButton: false,
-                            iconColor: '#fff',
-                            color: '#fff',
-                            icon: 'error',
-                            title: 'You must select the checkBox!', 
+                            title: 'You must select the checkBox!',
                             timer: 2500
                         })
                     }
@@ -532,7 +535,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 divFreeOneA.addEventListener("click", () => {
                     shippingDetailTitleA.checked = false;
                     costShipment.textContent = "";
-                    
+
                 })
 
                 /* FINALIZACION DE LA COMPRA */
@@ -707,9 +710,9 @@ document.addEventListener("DOMContentLoaded", () => {
             let saveStorage = JSON.parse(localStorage.getItem("cart"));
 
             saveStorage != null &&
-                saveStorage.forEach((item) => {
-                    shopCartSelected.push(item);
-                });
+            saveStorage.forEach((item) => {
+                shopCartSelected.push(item);
+            });
 
             loadDomProducts(shopCartSelected);
         }

@@ -14,6 +14,8 @@ let videoPaths = ["../images/home-main-videos/publicidad-razer.mp4", "../images/
 let position = 0;
 circles[position].classList.add("circle-active");
 
+// FUNCION PARA QUE CUANDO CLIKEAS CAMBIE EL VIDEO
+
 arrowRight.addEventListener('click', () => {
     position++;
     if (position >= circles.length) {
@@ -23,9 +25,12 @@ arrowRight.addEventListener('click', () => {
         circles.forEach(elem => elem.classList.remove("circle-active"));
     }
     circles[position].classList.add("circle-active");
-    videoCarousel.setAttribute('src',videoPaths[position]);
+    videoCarousel.setAttribute('src', videoPaths[position]);
     console.log(position);
 })
+
+
+// FUNCION PARA QUE CUANDO CLIKEAS CAMBIE EL VIDEO
 
 arrowLeft.addEventListener('click', () => {
     position--;
@@ -36,7 +41,7 @@ arrowLeft.addEventListener('click', () => {
         circles.forEach(elem => elem.classList.remove("circle-active"));
     }
     circles[position].classList.add("circle-active");
-    videoCarousel.setAttribute('src',videoPaths[position]);
+    videoCarousel.setAttribute('src', videoPaths[position]);
     console.log(position);
 })
 

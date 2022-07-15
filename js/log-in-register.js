@@ -3,35 +3,35 @@ const body = document.querySelector("body");
 const localStorageUser = [];
 const userLoggedIn = [];
 
-
+// CREACION DEL LOG IN AL HACER CLICK
 
 iconUser.addEventListener("click", () => {
     createDivLogIn()
 })
 
 function createDivLogIn() {
-    let containerGeneral = document.createElement("div");
-    let container = document.createElement("div");
-    let upperContainer = document.createElement("div");
-    let spanPoint1 = document.createElement("span");
-    let spanPoint2 = document.createElement("span");
-    let spanPoint3 = document.createElement("span");
-    let closeImg = document.createElement("img");
-    let containerForm = document.createElement("form");
-    let divTitle = document.createElement("div");
-    let titleSpan1 = document.createElement("span");
-    let titleSpan2 = document.createElement("span");
-    let divUserContainer = document.createElement("div");
-    let divUser = document.createElement("div");
-    let labelUser = document.createElement("label");
-    let inputUser = document.createElement("input");
-    let divPassword = document.createElement("div");
-    let labelPassword = document.createElement("label");
-    let inputPassword = document.createElement("input");
-    let registerUser = document.createElement("div");
-    let buttonLogIn = document.createElement("button");
-    let buttonRegister = document.createElement("button");
-   
+    let containerGeneral = document.createElement("div"),
+        container = document.createElement("div"),
+        upperContainer = document.createElement("div"),
+        spanPoint1 = document.createElement("span"),
+        spanPoint2 = document.createElement("span"),
+        spanPoint3 = document.createElement("span"),
+        closeImg = document.createElement("img"),
+        containerForm = document.createElement("form"),
+        divTitle = document.createElement("div"),
+        titleSpan1 = document.createElement("span"),
+        titleSpan2 = document.createElement("span"),
+        divUserContainer = document.createElement("div"),
+        divUser = document.createElement("div"),
+        labelUser = document.createElement("label"),
+        inputUser = document.createElement("input"),
+        divPassword = document.createElement("div"),
+        labelPassword = document.createElement("label"),
+        inputPassword = document.createElement("input"),
+        registerUser = document.createElement("div"),
+        buttonLogIn = document.createElement("button"),
+        buttonRegister = document.createElement("button");
+
     containerGeneral.classList.add("container-general-log-in");
     container.classList.add("container-log-in");
     upperContainer.classList.add("upper-container");
@@ -56,15 +56,6 @@ function createDivLogIn() {
     divPassword.append(labelPassword, inputPassword);
     divTitle.append(titleSpan1, titleSpan2);
 
-    /* $(document).ready(function() {
-        let height = $(window).height();
-        containerGeneral.height(height)
-    }); */
-
-    
-
-    
-
     spanPoint1.setAttribute("id", "js-span-a");
     spanPoint2.setAttribute("id", "js-span-b");
     spanPoint3.setAttribute("id", "js-span-c");
@@ -85,18 +76,23 @@ function createDivLogIn() {
     buttonRegister.textContent = "Register";
     buttonRegister.setAttribute("id", "js-submit-button-register");
 
+    //LLAMADO A LA FUNCION LOG IN
+
     logInUser(buttonLogIn, containerForm, containerGeneral, container);
+
+    //CAMBIO DINAMICO AL REGISTRARSE EN EL DOM
 
     buttonRegister.addEventListener("click", () => {
         titleSpan1.textContent = "SIGN";
         titleSpan2.textContent = "UP";
         inputUser.setAttribute("placeholder", "enter your user");
         inputPassword.setAttribute('type', "enter your password");
-        let divRepeatPassword = document.createElement("div");
-        let labelRepeatPassword = document.createElement("label");
-        let inputRepeatPassword = document.createElement("input");
-        let confirmUser = document.createElement("div");
-        let buttonConfirm = document.createElement("button");
+
+        let divRepeatPassword = document.createElement("div"),
+            labelRepeatPassword = document.createElement("label"),
+            inputRepeatPassword = document.createElement("input"),
+            confirmUser = document.createElement("div"),
+            buttonConfirm = document.createElement("button");
 
 
         divRepeatPassword.classList.add("complete-data");
@@ -122,16 +118,12 @@ function createDivLogIn() {
         buttonRegister.remove();
 
         captureData(buttonConfirm, containerForm, containerGeneral);
-
-       
-
-
     })
 
     removeScreen(containerGeneral, closeImg, container);
 }
 
-
+//FUNCION PARA REGISTRARSE
 
 function captureData(register, form, deleteDiv) {
     let repeatUsers = JSON.parse(localStorage.getItem("user"));
@@ -229,6 +221,7 @@ function captureData(register, form, deleteDiv) {
     })
 }
 
+//FUNCION PARA LOGUEARSE
 function logInUser(button, form, deleteDiv, animation) {
     let saveStorageUser = JSON.parse(localStorage.getItem("user"));
     button.addEventListener("click", (e) => {
@@ -290,14 +283,16 @@ function logInUser(button, form, deleteDiv, animation) {
                 animation.classList.add("animate__animated");
                 animation.classList.add("animate__fadeOutRight");
                 deleteDiv.classList.add("remove-background");
-                setTimeout(function() {
+                setTimeout(function () {
                     deleteDiv.innerHTML = "";
-                    deleteDiv.classList.remove("container-general-log-in");}, 700);
+                    deleteDiv.classList.remove("container-general-log-in");
+                }, 700);
             }
         }
     })
 }
 
+//FUNCION PARA ELIMINAR EL DIV CUANDO SALIS DEL MENU DE LOGUEO O REGISTRO
 function removeScreen(containerGeneral, closeImg, animation) {
     window.addEventListener("keydown", (element) => {
         if (element.key === "Escape") {
@@ -309,9 +304,10 @@ function removeScreen(containerGeneral, closeImg, animation) {
         animation.classList.add("animate__animated");
         animation.classList.add("animate__fadeOutRight");
         containerGeneral.classList.add("remove-background");
-        setTimeout(function() {
+        setTimeout(function () {
             containerGeneral.innerHTML = "";
-            containerGeneral.classList.remove("container-general-log-in");}, 700);
+            containerGeneral.classList.remove("container-general-log-in");
+        }, 700);
     })
 }
 

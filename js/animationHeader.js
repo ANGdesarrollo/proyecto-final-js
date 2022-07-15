@@ -8,14 +8,5 @@ animation.addEventListener("click", () => {
 })
 
 
-/* /* Animacion dropdown */
 
-let mainDropDown = document.querySelector(".main-dropdown");
-let dropdown = document.querySelector(".dropdown");
-let dropdownImg = document.querySelector(".search-icon1");
-
-mainDropDown.addEventListener("click", () => {
-    dropdown.classList.toggle("active-dropdown");
-    dropdownImg.classList.toggle("active-search-icon");
-})
 

@@ -1,0 +1,47 @@
+@import '../base/_vars';
+
+main {
+    margin: 10px;
+    .title-return-policy {
+      display: flex;
+      justify-content: center;
+      margin: 2%;
+      border-bottom: 2px solid $lightBlue;
+      h1 {
+        font-family: 'Cairo', sans-serif;
+        font-size: 3em;
+        font-weight: bold;
+      }
+    }
+    .description-return-policy {
+      font-family: 'Cairo', sans-serif;
+      flex-direction: column;
+      display: flex;
+      width: 40%;
+      font-size: 1.2em;
+      margin: 2%;
+      li {
+        padding: 1% 0 1% 2%;
+        font-style: italic;
+      }
+      p {
+        line-height: 150%;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 769px) {
+    main {
+      .title-return-policy {
+        h1 {
+          font-size: 2em;
+        }
+      }
+      .description-return-policy {
+  
+        width: 100%;
+        font-size: 1em;
+      }
+    }
+  
+  }

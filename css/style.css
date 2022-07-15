@@ -1722,6 +1722,45 @@ html {
     width: 100%;
   }
 }
+main {
+  margin: 10px;
+}
+main .title-return-policy {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+  border-bottom: 2px solid #29d0fd;
+}
+main .title-return-policy h1 {
+  font-family: "Cairo", sans-serif;
+  font-size: 3em;
+  font-weight: bold;
+}
+main .description-return-policy {
+  font-family: "Cairo", sans-serif;
+  flex-direction: column;
+  display: flex;
+  width: 40%;
+  font-size: 1.2em;
+  margin: 2%;
+}
+main .description-return-policy li {
+  padding: 1% 0 1% 2%;
+  font-style: italic;
+}
+main .description-return-policy p {
+  line-height: 150%;
+}
+
+@media screen and (max-width: 769px) {
+  main .title-return-policy h1 {
+    font-size: 2em;
+  }
+  main .description-return-policy {
+    width: 100%;
+    font-size: 1em;
+  }
+}
 footer {
   display: flex;
   padding-left: 5%;
