@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
             filterPriceLabel2.textContent = "Higher price";
             filterPriceInput.setAttribute("id", "js-filter-price-input");
             filterPriceInput2.setAttribute("id", "js-filter-price-input2");
-            filterPriceLabel.setAttribute("id", "js-filter-price-input");
-            filterPriceLabel2.setAttribute("id", "js-filter-price-input2");
+            filterPriceLabel.setAttribute("for", "js-filter-price-input");
+            filterPriceLabel2.setAttribute("for", "js-filter-price-input2");
 
             //FOR EACH PARA CREAR CADA ITEM
             let categoryFragment = document.createDocumentFragment();
@@ -425,7 +425,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 titleResumeBuy.textContent = "Resume";
                 shippingDetailTitleA.setAttribute('type', 'checkbox');
                 shippingDetailTitleB.textContent = "Shipping methods";
-                labelCP.setAttribute("id", "inputCP");
+                labelCP.setAttribute("for", "inputCP");
                 inputCP.setAttribute("id", "inputCP");
                 labelCP.textContent = "Enter your zip";
                 buttonCheck.textContent = "Calculate";
