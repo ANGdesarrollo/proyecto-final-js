@@ -352,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 spanRight.setAttribute("id", `${contador}`);
                 deleteProductImg.setAttribute("id", `${contador}`);
                 hiddenContinueButton.textContent = "Continue";
+                hiddenTotalNumberh2.setAttribute('id', 'change-color');
 
 
                 // LLAMADO A FUNCION
@@ -472,21 +473,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     TotalPerProduct.textContent = `$ ${item.qty * item.price}`;
                 })
 
+                
+
                 buttonCheck.addEventListener("click", (e) => {
+                    
                     let costShipmentCP = 0;
+                    if(inputCP != "") {
+                        if (inputCP.value < 10000) {
+                            costShipmentCP = 100
+                        } else if (inputCP.value > 10000) {
+                            costShipmentCP = 50
+                        } else {
+                            costShipmentCP = 75
+                        }
+                    }
                     e.preventDefault();
                     if (shippingDetailTitleA.checked) {
-                        if(inputCP != "") {
-                            if (inputCP.value < 10000) {
-                                costShipmentCP = 100
-                            } else if (inputCP.value > 10000) {
-                                costShipmentCP = 50
-                            } else {
-                                costShipmentCP = 75
-                            }
-                        } 
-                        
-                        if (inputCP.value != "") {
+                         if (inputCP.value != "") {
                             price.textContent = `$ ${totalToPay + costShipmentCP}`
                             costShipment.textContent = `$ ${costShipmentCP}`
                          } else {
@@ -500,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             iconColor: '#fff',
                             color: '#fff',
                             icon: 'error',
-                            title: 'You must select the checkBox!',
+                            title: 'You must complete the field!',
                             timer: 2500
                         }) 
                     } } else {
@@ -514,10 +517,22 @@ document.addEventListener("DOMContentLoaded", () => {
                             iconColor: '#fff',
                             color: '#fff',
                             icon: 'error',
-                            title: 'You must complete the field!',
+                            title: 'You must select the checkBox!', 
                             timer: 2500
                         })
                     }
+                })
+
+                /*  DESTILDAR UN CHECKBOX SI ESTA EL OTRO TILDADO */
+
+                shippingDetailTitleA.addEventListener("click", () => {
+                    divFreeOneA.checked = false;
+                })
+
+                divFreeOneA.addEventListener("click", () => {
+                    shippingDetailTitleA.checked = false;
+                    costShipment.textContent = "";
+                    
                 })
 
                 /* FINALIZACION DE LA COMPRA */
