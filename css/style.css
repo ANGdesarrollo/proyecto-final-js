@@ -1462,6 +1462,9 @@ html {
   }
 }
 @media screen and (max-width: 576px) {
+  .main {
+    height: 650px;
+  }
   .main .form {
     width: 100%;
   }

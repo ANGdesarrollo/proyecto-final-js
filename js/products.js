@@ -593,7 +593,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //AGREGAR O RESTAR PRODUCTOS DESDE EL CARRITO
             left.addEventListener("click", (e) => {
                 let saveStorage = JSON.parse(localStorage.getItem("cart"));
-                if (item.qty === 0) {
+                if (item.qty === 1) {
                     item.qty++;
                     input.setAttribute("value", item.qty);
                 }
