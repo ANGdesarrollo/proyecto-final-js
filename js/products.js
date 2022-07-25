@@ -457,23 +457,25 @@ document.addEventListener("DOMContentLoaded", () => {
                         imgProductDiv = document.createElement("div"),
                         imgProduct = document.createElement("img"),
                         qtyProduct = document.createElement("div"),
-                        TotalPerProduct = document.createElement("div");
+                        totalPerProduct = document.createElement("div");
 
 
                     detailsDiv.append(boxProductDetail);
-                    boxProductDetail.append(imgProductDiv, nameProduct, qtyProduct, TotalPerProduct);
+                    boxProductDetail.append(imgProductDiv, nameProduct, qtyProduct, totalPerProduct);
                     imgProductDiv.append(imgProduct)
 
                     boxProductDetail.classList.add("products-details-container");
                     nameProduct.classList.add("name-product-detail");
                     qtyProduct.classList.add("qty-product-detail");
-                    TotalPerProduct.classList.add("total-product-detail");
+                    totalPerProduct.classList.add("total-product-detail");
                     imgProductDiv.classList.add("img-product-detail");
 
                     imgProduct.setAttribute('src', item.imgPath);
                     nameProduct.textContent = item.name;
                     qtyProduct.textContent = item.qty;
-                    TotalPerProduct.textContent = `$ ${item.qty * item.price}`;
+                    totalPerProduct.textContent = `$ ${item.qty * item.price}`;
+
+
                 })
 
 
@@ -489,10 +491,11 @@ document.addEventListener("DOMContentLoaded", () => {
                             costShipmentCP = 75
                         }
                     }
+
                     e.preventDefault();
                     if (shippingDetailTitleA.checked) {
                         if (inputCP.value != "") {
-                            price.textContent = `$ ${totalToPay + costShipmentCP}`
+                            price.textContent = `${totalToPay + costShipmentCP} USD`
                             costShipment.textContent = `$ ${costShipmentCP}`
                         } else {
                             Swal.fire({
@@ -533,10 +536,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
 
                 divFreeOneA.addEventListener("click", () => {
+                    if(costShipment != "") {
+                        price.textContent = `${totalToPay} USD`;
+                    }
                     shippingDetailTitleA.checked = false;
                     costShipment.textContent = "";
 
                 })
+
 
                 /* FINALIZACION DE LA COMPRA */
 
