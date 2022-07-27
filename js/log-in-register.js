@@ -132,17 +132,10 @@ function captureData(register, form, deleteDiv) {
     register.addEventListener("click", (event) => {
         event.preventDefault();
 
-        // if (repeatUsers != null) {
-        //     repeatUsers = repeatUsers.filter(item => item.user == form.querySelector("#name-user").value)
-        // }
-
-
         if (repeatUsers != null) {
             var repeatUsersFind = repeatUsers.find((item) => item.user == form.querySelector("#name-user").value);
         }
 
-
-        // console.log(repeatUsers.find((el) => el.user == "Purran"))
         if (repeatUsersFind != undefined) {
             Swal.fire({
                 position: 'center',
