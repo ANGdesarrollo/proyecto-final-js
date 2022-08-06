@@ -55,6 +55,8 @@
       .user-container-data {
         @include flex(flex, center, flex-start, column);
 
+        
+
         .complete-data {
           padding: 3%;
           width: 100%;
@@ -67,6 +69,7 @@
           }
 
           input {
+            color: white;
             width: 70%;
             font-size: .7rem;
             background: none;
