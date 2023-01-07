@@ -1608,6 +1608,7 @@ html {
   color: #3e3e3e;
 }
 .container-general-log-in .container-log-in .form-container-user .user-container-data .complete-data input {
+  color: white;
   width: 70%;
   font-size: 0.7rem;
   background: none;
